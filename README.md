@@ -1,8 +1,8 @@
 ### Alender&Son 
 Alexander&son is a webservice company who provides affordable website solutions by premade template website that are ready-for-delivery out the box. All thats needed is a CMS to connect up to the webapp and the customer is good to go. Check out our offers and other design templates at [Alexander&Son](https://alexanderochson.com).
 
-## Minimal Elegance
-Minimal Elegance is the template that offers an elegant style combined with functional layout. This template is 100% dynamic, all you need is to connect a CMS and add content
+## AskaHeim Kakelugnsmakeri
+Askaheim is a privatly owned company that supplies services regarding restoration and rebuilding antique and new tiled stoves. 
 
 
 
