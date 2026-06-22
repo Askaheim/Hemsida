@@ -19,7 +19,7 @@ export default function HeroSection({ heroTitle, heroText }: HeroSectionProps) {
       </Canvas>
 
       <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", zIndex: 10, pointerEvents: "none" }}>
-        {/* HÄR MAPPAR VI IN DATA FRÅN CONTENTFUL DYNAMISKT */}
+        {/* Map data from Contentful dynamically */}
         <h1 style={{ color: "#f0ede8", fontSize: "clamp(2rem, 6vw, 5rem)", fontWeight: 700, textAlign: "center", margin: 0 }}>
           {heroTitle || "Default Headline"}
         </h1>
