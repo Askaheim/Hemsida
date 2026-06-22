@@ -2,13 +2,11 @@
 
 import { Canvas } from "@react-three/fiber";
 import TileGrid from "./TileGrid";
+import { LandingpageHeroSectionProps } from "./LandingpageHeroSection.types";
 
-interface HeroSectionProps {
-  heroTitle?: string;
-  heroText?: string;
-}
 
-export default function HeroSection({ heroTitle, heroText }: HeroSectionProps) {
+
+export default function LandingpageHeroSection({ heroTitle, heroText }: LandingpageHeroSectionProps) {
   return (
     <section style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden", background: "#1e1c1a" }}>
       <Canvas style={{ position: "absolute", inset: 0 }} camera={{ position: [0, 0, 10], fov: 50 }} gl={{ antialias: true, alpha: false }}>

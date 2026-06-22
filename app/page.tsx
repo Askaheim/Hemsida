@@ -1,15 +1,16 @@
-import CardSection from '@/components/CardSection/CardSection'
-import Herosection from '@/components/HeroSection/HeroSection'
-import LogoSliderSection from '@/components/LogoSliderSection/LogoSliderSection'
-import Menu from '@/components/Navbar/Menu'
-import QuoteSection from '@/components/QuoteSection/QuoteSection'
-import CenterTextBlock from '@/components/TextSections/CenterTextSection'
+import {
+  CenterTextBlock,
+  LandingpageHeroSection,
+  Menu,
+  CardSection,
+  QuoteSection,
+  TextBlock,
+  LogoSliderSection,
+} from '@/components'
 import { BlockProps } from '@/components/TextSections/TextSection.types'
-import TextBlock from '@/components/TextSections/TextSections'
 import apolloClient from '@/lib/apolloClient'
 import previewClient from '@/lib/previewClient'
 import { GET_LANDING_DATA } from '@/queries'
-import { CardData } from '@/utils/globalTypes'
 import { ContentfulLivePreview } from '@contentful/live-preview'
 import { draftMode } from 'next/headers'
 
@@ -23,10 +24,6 @@ export default async function Home() {
       preview: isEnabled,
     },
   })
-
-  const quoteItem = data?.landingPageQuoteCollection?.items[0]
-
-  const cardsData: CardData[] = data?.serviceCardsCollection?.items
 
   const heroData = data?.heroSectionCollection?.items[0]
   const frontPageTextSections = (data?.frontPageTextSectionsCollection?.items ??
@@ -59,14 +56,8 @@ export default async function Home() {
     <>
       <Menu withBg={true} />
       <main>
-        <Herosection
-          heroTitle={heroData?.heroTitle}
-          heroText={heroData?.heroText}
-          heroImage={heroData?.heroImage}
-          heroCtaPrimary={heroData?.heroCtaPrimary}
-          heroCtaSecondary={heroData?.heroCtaSecondary}
-          sys={heroData?.sys}
-        />
+        <LandingpageHeroSection />
+
         <div className='section-contain'>
           {firstSection && (
             <CenterTextBlock
@@ -81,9 +72,8 @@ export default async function Home() {
               })}
             />
           )}
-          <CardSection className='my-4 lg:my-6' cardsData={cardsData} />
+
         </div>
-        <QuoteSection className='my-8 lg:my-10' quoteItem={quoteItem} />
         <div className='section-contain'>
           {otherSections &&
             otherSections.map(block => (
