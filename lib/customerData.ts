@@ -1,13 +1,13 @@
 //Fill in the customer data object with default values and types
 
 export const customerData = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  company: '',
-  websiteUrl: 'https://www.alexanderochson.com',
-  siteName: 'Alexander&son webservices',
+  firstName: 'Henrik',
+  lastName: 'Hansson',
+  email: 'info@askaheim.se',
+  phone: '+46737077142',
+  company: 'Askaheim Kakelugnsmakeri',
+  websiteUrl: 'https://www.askaheim.se',
+  siteName: 'Askaheim Kakelugnsmakeri',
   message: '',
   contactMessage: '',
   consent: false,
