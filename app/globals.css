@@ -311,6 +311,19 @@
     --bebas: 'Bebas Neue', 'Poppins', sans-serif;
     --inria-sherif: 'Inria Serif', sans-serif;
 
+    /*hero section 3d colors*/
+    /* 
+    --tile-color-face     : main tile face color;
+    --tile-color-edge     : tile side/edge color;
+    --tile-color-grout    : background / grout gap color;
+    --tile-color-specular : highlight color for the 3D gloss;
+    --hero-bg             : canvas background;
+ */
+    --tile-color-face: #f0ede8;
+    --tile-color-edge: #c8c3bc;
+    --tile-color-grout: #2a2825;
+    --tile-color-specular: #ffffff;
+    --hero-bg: #1e1c1a;
   }
 }
 
