@@ -177,6 +177,13 @@
 }
 
 @theme {
+
+  --tile-color-face: #f0ede8;
+  --tile-color-edge: #c8c3bc;
+  --tile-color-grout: #2a2825;
+  --tile-color-specular: #ffffff;
+  --hero-bg: #1e1c1a;
+
   --color-bronze-1: #cd7f32;
   --color-bronze-2: #3b2a0c;
   --color-silver-1: #c0c0c0;

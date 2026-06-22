@@ -2,10 +2,9 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-
 const Tile = ({ col, row, delay, gridOffsetX, gridOffsetY, materials, geometry }: any) => {
     const mesh = useRef<THREE.Mesh>(null);
-    const targetX = col * 1.06 - gridOffsetX; // Använder CELL-värdet direkt eller via konstanter
+    const targetX = col * 1.06 - gridOffsetX;
     const targetY = row * 1.06 - gridOffsetY;
 
     const state = useRef({
@@ -41,9 +40,9 @@ const Tile = ({ col, row, delay, gridOffsetX, gridOffsetY, materials, geometry }
                 mesh.current.rotation.z += delta * 0.9;
             }
         } else {
-            // MUS-TRACKER BLOCK:
-            const mouseX = stateContext.pointer.x * 6;
-            const mouseY = stateContext.pointer.y * 4;
+            // INTERACTIVE MOUSE EFFECT
+            const mouseX = (stateContext.pointer.x * stateContext.viewport.width) / 2;
+            const mouseY = (stateContext.pointer.y * stateContext.viewport.height) / 2;
 
             const dx = mesh.current.position.x - mouseX;
             const dy = mesh.current.position.y - mouseY;
@@ -56,11 +55,10 @@ const Tile = ({ col, row, delay, gridOffsetX, gridOffsetY, materials, geometry }
 
             if (distance < effectRadius) {
                 const strength = 1 - (distance / effectRadius);
-                targetZ = -0.4 * strength;
-                targetRotX = dy * strength * 0.2;
-                targetRotY = -dx * strength * 0.2;
+                targetZ = -0.6 * strength;
+                targetRotX = dy * strength * 0.3;
+                targetRotY = -dx * strength * 0.3;
             }
-
             mesh.current.position.z = THREE.MathUtils.lerp(mesh.current.position.z, targetZ, 0.1);
             mesh.current.rotation.x = THREE.MathUtils.lerp(mesh.current.rotation.x, targetRotX, 0.1);
             mesh.current.rotation.y = THREE.MathUtils.lerp(mesh.current.rotation.y, targetRotY, 0.1);
