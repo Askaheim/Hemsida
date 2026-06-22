@@ -4,8 +4,6 @@ import LivePreviewProvider from '@/context/LivePreviewProvider'
 import { MenuContextProvider } from '@/context/MenuProvider'
 import apolloClient from '@/lib/apolloClient'
 import previewClient from '@/lib/previewClient'
-import { GET_FOOTER, GET_NAVBAR } from '@/queries'
-import { GET_CUSTOMER } from '@/queries/getCustomerSpecefics'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import type { Metadata } from 'next'
 import { Bebas_Neue, Inria_Serif, Poppins } from 'next/font/google'
@@ -34,12 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const { isEnabled } = await draftMode()
   const client = isEnabled ? previewClient : apolloClient
 
-  const { data: metaKeywordsData } = await client.query({
-    query: GET_CUSTOMER,
-    variables: { preview: isEnabled },
-  })
-  const customerKeyWords =
-    metaKeywordsData.metaKeywordsCollection?.items[0]?.keywordsArray || []
+
   const metadataBase =
     process.env.NEXT_LOCAL_BASE_URL ||
     process.env.NEXT_PUBLIC_URL ||
@@ -49,14 +42,24 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: {
-      template: 'Minimalistic Elegance | %s',
-      default: 'Minimalistic Elegance',
+      template: 'Askaheim | %s',
+      default: 'Askaheim Kakelugnsmakeri',
     },
     description: `Created by Alexander&son for ${metaCustomer}`,
     icons: {
       icon: '/favicon.ico',
     },
-    keywords: customerKeyWords,
+    keywords: [
+      'kakelugnsmakeri',
+      'kakelugnar',
+      'eldstäder',
+      'spisar',
+      'kaminer',
+      'vedspisar',
+      'kakelugnsrenovering',
+      'skräddarsydda kakelugnar',
+      'hållbara värmelösningar',
+    ],
     metadataBase: new URL(metadataBase),
     authors: [{ name: 'Alexander&son' }],
     creator: 'Alexander&son',
@@ -69,34 +72,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // Await the draftMode promise to get isEnabled
   const { isEnabled } = await draftMode()
   const client = isEnabled ? previewClient : apolloClient
 
-  const { data } = await client.query({
-    query: GET_FOOTER,
-    variables: { preview: isEnabled },
-  })
 
-  const footerData = {
-    sections: data.footerTextSectionsCollection?.items || [],
-    partners: data.footerPartnerSectionCollection?.items || [],
-    socialMedia: data.footerSectionSocialMediaCollectionCollection?.items || [],
-    logo: data.footerSectionCollection?.items || '',
-    backgroundText:
-      data.modelTextCollection?.items[0]?.backgroundText?.url || '',
-  }
-
-  const navbarLogos = await client.query({
-    query: GET_NAVBAR,
-    variables: { preview: isEnabled },
-  })
   const navbarData = {
-    logo:
-      navbarLogos.data.navbarLogotypeCollection?.items[0]?.logotype?.url || '',
-    logoDark:
-      navbarLogos.data.navbarLogotypeCollection?.items[0]?.logotypeDarkmode
-        ?.url || '',
+    logo: '/logotypes/logotype_BIG_TEXT.png',
+    logoDark: '/logotypes/logotype_BIG_TEXT_WHITE.png',
   }
   return (
     <html
@@ -111,7 +93,7 @@ export default async function RootLayout({
               {children}
             </LivePreviewProvider>
           </MenuContextProvider>
-          <Footer footerData={footerData} />
+          <Footer />
         </AppRouterCacheProvider>
       </body>
       {isEnabled && <Script src='/live-preview.mjs' />}

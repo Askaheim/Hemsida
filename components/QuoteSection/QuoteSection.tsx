@@ -4,11 +4,11 @@ import { ContentfulLivePreview } from '@contentful/live-preview'
 import Typography from '../Typography/Typography'
 import { QuoteSectionProps } from './QuoteSection.types'
 
-export default async function QuoteSection({
+const QuoteSection = async ({
   quoteItem,
   className,
   ...props
-}: QuoteSectionProps) {
+}: QuoteSectionProps) => {
   return (
     <section
       className={cn(
@@ -41,3 +41,4 @@ export default async function QuoteSection({
     </section>
   )
 }
+export default QuoteSection

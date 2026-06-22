@@ -82,17 +82,17 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
             <Image
               src={navbarData.logoDark}
               alt='corporate logo'
-              width={200 / 1.1}
+              width={85 / 1.1}
               height={36 / 1.1}
-              className='max-w-[130px] md:max-w-none'
+              className='max-w-[100px] md:max-w-none'
             />
           ) : (
             <Image
               src={navbarData.logo}
               alt='corporate logo'
-              width={200 / 1.1}
+              width={85 / 1.1}
               height={36 / 1.1}
-              className='max-w-[130px] md:max-w-none'
+              className='max-w-[100px] md:max-w-none'
             />
           )}
         </Link>

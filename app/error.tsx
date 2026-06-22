@@ -1,9 +1,10 @@
 'use client'
 
-import Button from '@/components/Button/Button'
+/* import {Menu, PageTitle, Typography, Button } from '@/components' */
 import Menu from '@/components/Navbar/Menu'
 import PageTitle from '@/components/PageTitle/PageTitle'
 import Typography from '@/components/Typography/Typography'
+import Button from '@/components/Button/Button'
 import { OctagonX } from 'lucide-react'
 import Link from 'next/link'
 

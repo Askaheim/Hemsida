@@ -1,6 +1,24 @@
 import { gql } from '@apollo/client'
-
 export const GET_LANDING_DATA = gql`
+  query GetData($preview: Boolean) {
+    heroSectionCollection(limit: 1, preview: $preview) {
+      items {
+        heroTitle
+        heroText 
+        heroImage {
+          url
+        }
+        heroCtaPrimary
+        heroCtaSecondary
+        sys {
+          __typename
+        }
+      }
+   }    
+  }
+`
+
+/* export const GET_LANDING_DATA = gql`
   query GetData($preview: Boolean) {
     heroSectionCollection(limit: 1, preview: $preview) {
       items {
@@ -69,7 +87,7 @@ export const GET_LANDING_DATA = gql`
       }
     }
   }
-`
+` */
 /*
 export const GET_LANDING_CARDS = gql`
   query GetData($preview: Boolean) {

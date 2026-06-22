@@ -1,35 +1,23 @@
-import Herosection from '@/components/HeroSection/HeroSection'
-import LandingpageHeroSection from '@/components/LandingpageHeroSection/LandingpageHeroSection'
-import CardSection from '@/components/CardSection/CardSection'
-import LogoSliderSection from '@/components/LogoSliderSection/LogoSliderSection'
-import Menu from '@/components/Navbar/Menu'
-import QuoteSection from '@/components/QuoteSection/QuoteSection'
-import CenterTextBlock from '@/components/TextSections/CenterTextSection'
-import TextBlock from '@/components/TextSections/TextSections'
-import StoryBoard from '@/components/StoryBoard/StoryBoard'
-import Typography from '@/components/Typography/Typography'
-import Slot from '@/components/Slot/Slot'
-import Skeleton from '@/components/Skeleton/Skeleton'
-import { richTextOptions } from '@/components/RichTextOptions/RichTextOptions'
-import QuoteTextBlock from '@/components/QuoteTextBlock/QuoteTextBlock'
-import Preloader from '@/components/PreLoader/PreLoader'
-import PageTitle from '@/components/PageTitle/PageTitle'
-
-export {
-    Herosection,
-    LandingpageHeroSection,
-    CardSection,
-    LogoSliderSection,
-    Menu,
-    QuoteSection,
-    CenterTextBlock,
-    TextBlock,
-    StoryBoard,
-    Typography,
-    Slot,
-    Skeleton,
-    richTextOptions,
-    QuoteTextBlock,
-    Preloader,
-    PageTitle
-}
+export { default as Button } from '@/components/Button/Button';
+export { default as CardSection } from '@/components/CardSection/CardSection';
+export { default as CardSlider } from '@/components/CardSlider/CardSlider';
+export { default as CenterTextBlock } from '@/components/TextSections/CenterTextSection';
+export { default as ContactForm } from '@/components/ContactForm/ContactForm';
+export { default as Divider } from '@/components/Divider/Divider';
+export { default as Footer } from '@/components/Footer/Footer';
+export { default as Herosection } from '@/components/HeroSection/HeroSection';
+export { default as Icon } from '@/components/FontIcon/Icon';
+export { default as LandingpageHeroSection } from '@/components/LandingpageHeroSection/LandingpageHeroSection';
+export { default as LogoSliderSection } from '@/components/LogoSliderSection/LogoSliderSection';
+export { default as Menu } from '@/components/Navbar/Menu';
+export { default as MenuList } from '@/components/Navbar/MenuList';
+export { default as PageTitle } from '@/components/PageTitle/PageTitle';
+export { default as Preloader } from '@/components/PreLoader/PreLoader';
+export { default as QuoteSection } from '@/components/QuoteSection/QuoteSection';
+export { default as QuoteTextBlock } from '@/components/QuoteTextBlock/QuoteTextBlock';
+export { default as Skeleton } from '@/components/Skeleton/Skeleton';
+export { default as Slot } from '@/components/Slot/Slot';
+export { default as StoryBoard } from '@/components/StoryBoard/StoryBoard';
+export { default as TextBlock } from '@/components/TextSections/TextSections';
+export { default as Typography } from '@/components/Typography/Typography';
+export { richTextOptions } from '@/components/RichTextOptions/RichTextOptions';
