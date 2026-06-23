@@ -85,6 +85,7 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
               width={85 / 1.1}
               height={36 / 1.1}
               className='max-w-[100px] md:max-w-none'
+              loading='eager'
             />
           ) : (
             <Image
@@ -93,6 +94,7 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
               width={85 / 1.1}
               height={36 / 1.1}
               className='max-w-[100px] md:max-w-none'
+              loading='eager'
             />
           )}
         </Link>

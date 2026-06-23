@@ -4,7 +4,11 @@ import * as THREE from "three";
 import { CELL, TILE_W, TILE_H, STAGGER, createTileMaterials, useTileGeometry } from "./LandingpageHeroSection.utils";
 import Tile from "./Tile";
 
-const TileGrid = () => {
+interface TileGridProps {
+    onGridSettled: () => void;
+}
+
+const TileGrid = ({ onGridSettled }: TileGridProps) => {
     const { viewport } = useThree();
     const [loadedTextures, setLoadedTextures] = useState<any>(null);
 
@@ -53,14 +57,26 @@ const TileGrid = () => {
 
     const tiles = useMemo(() => {
         const list = [];
+        let maxDelay = 0;
+
         for (let row = 0; row < rows; row++) {
             for (let col = 0; col < cols; col++) {
                 const delay = (col + (rows - 1 - row)) * STAGGER + Math.random() * 0.05;
+                if (delay > maxDelay) {
+                    maxDelay = delay;
+                }
                 list.push({ col, row, delay, key: `${col}-${row}` });
             }
         }
+
+        // Calculate total time until final tiles fall down (~1.2s flight duration)
+        const totalDuration = (maxDelay + 1.2) * 1000;
+        const timer = setTimeout(() => {
+            onGridSettled();
+        }, totalDuration);
+
         return list;
-    }, [cols, rows]);
+    }, [cols, rows, onGridSettled]);
 
     // 2. Gatekeeper: If textures are downloading, render nothing. Prevents middle-of-fall re-renders.
     if (!loadedTextures) return null;
