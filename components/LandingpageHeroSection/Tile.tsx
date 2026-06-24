@@ -2,15 +2,29 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-const Tile = ({ col, row, delay, gridOffsetX, gridOffsetY, materials, geometry }: any) => {
+interface TileProps {
+    col: number;
+    row: number;
+    delay: number;
+    gridOffsetX: number;
+    gridOffsetY: number;
+    materials: any;
+    geometry: any;
+}
+
+const Tile = ({ col, row, delay, gridOffsetX, gridOffsetY, materials, geometry }: TileProps) => {
     const mesh = useRef<THREE.Mesh>(null);
     const targetX = col * 1.06 - gridOffsetX;
     const targetY = row * 1.06 - gridOffsetY;
 
+    // Fixed: Math.random values are saved here inside the ref so they persist safely during execution
     const state = useRef({
         elapsed: 0,
         velocityY: 0,
         settled: false,
+        startX: targetX + (Math.random() - 0.5) * 3,
+        startY: 14 + Math.random() * 4,
+        startZ: (Math.random() - 0.5) * 2,
         rotX: (Math.random() - 0.5) * Math.PI * 2,
         rotY: (Math.random() - 0.5) * Math.PI * 2,
         rotZ: (Math.random() - 0.5) * Math.PI * 2,
@@ -71,7 +85,7 @@ const Tile = ({ col, row, delay, gridOffsetX, gridOffsetY, materials, geometry }
             ref={mesh}
             geometry={geometry}
             material={materials}
-            position={[targetX + (Math.random() - 0.5) * 3, 14 + Math.random() * 4, (Math.random() - 0.5) * 2]}
+            position={[state.current.startX, state.current.startY, state.current.startZ]}
         />
     );
 }

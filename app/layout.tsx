@@ -14,27 +14,27 @@ import './globals.css'
 const advisor = localFont({
   src: [
     {
-      path: '../public/fonts/Advisor_SSi.ttf',
+      path: '../public/fonts/Advisor/Advisor_SSi.ttf',
       weight: '300',
       style: 'normal',
     },
     {
-      path: '../public/fonts/Advisor_SSi_Bold.ttf',
+      path: '../public/fonts/Advisor/Advisor_SSi_Bold.ttf',
       weight: '900',
       style: 'normal',
     },
     {
-      path: '../public/fonts/Advisor_Black_SSi_Black_Italic.ttf',
+      path: '../public/fonts/Advisor/Advisor_Black_SSi_Black_Italic.ttf',
       weight: '900',
       style: 'italic',
     },
     {
-      path: '../public/fonts/AdvisorMedium.ttf',
+      path: '../public/fonts/Advisor/AdvisorMedium.ttf',
       weight: '400',
       style: 'italic',
     },
     {
-      path: '../public/fonts/AdvisorItalic.ttf',
+      path: '../public/fonts/Advisor/AdvisorItalic.ttf',
       weight: '400',
       style: 'italic',
     }
@@ -91,8 +91,8 @@ export default async function RootLayout({
 
 
   const navbarData = {
-    logo: '/logotypes/logotype_BIG_TEXT.png',
-    logoDark: '/logotypes/logotype_BIG_TEXT_WHITE.png',
+    logo: '/logotypes/logotype_RGB.png',
+    logoDark: '/logotypes/logotype-WHITE.png',
   }
   return (
     <html

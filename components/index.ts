@@ -5,7 +5,7 @@ export { default as CenterTextBlock } from '@/components/TextSections/CenterText
 export { default as ContactForm } from '@/components/ContactForm/ContactForm';
 export { default as Divider } from '@/components/Divider/Divider';
 export { default as Footer } from '@/components/Footer/Footer';
-export { default as Herosection } from '@/components/HeroSection/HeroSection';
+export { default as Herosection } from '@/components/HeroSection/HeroSectionCanvas';
 export { default as Icon } from '@/components/FontIcon/Icon';
 export { default as LandingpageHeroSection } from '@/components/LandingpageHeroSection/LandingpageHeroSection';
 export { default as LogoSliderSection } from '@/components/LogoSliderSection/LogoSliderSection';

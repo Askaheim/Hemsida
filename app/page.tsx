@@ -26,8 +26,6 @@ export default async function Home() {
       <Menu withBg={true} />
       <main>
         <LandingpageHeroSection />
-
-
       </main>
     </>
   )

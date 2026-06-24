@@ -184,7 +184,7 @@
   --tile-color-specular: #ffffff;
   --hero-bg: #1e1c1a;
 
-  --color-bronze-1: #cd7f32;
+  --color-bronze-1: #f3c55e;
   --color-bronze-2: #3b2a0c;
   --color-silver-1: #c0c0c0;
   --color-silver-2: #a8a8a8;
@@ -249,7 +249,7 @@
 
 @layer base {
   :root {
-    --bronze-1: #cd7f32;
+    --bronze-1: #f3c55e;
     --bronze-2: #3b2a0c;
     --silver-1: #c0c0c0;
     --silver-2: #a8a8a8;
