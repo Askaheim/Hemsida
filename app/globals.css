@@ -185,12 +185,10 @@
   --hero-bg: #1e1c1a;
 
   --color-bronze-1: #f3c55e;
-  --color-bronze-2: #3b2a0c;
-  --color-silver-1: #c0c0c0;
-  --color-silver-2: #a8a8a8;
-  --color-gold-1: #ffd700;
-  --color-gold-2: #b8860b;
-  --color-diamond-1: #b9f2ff;
+
+  --color-text-primary-dark: #ffffff;
+  --color-text-primary-light: #000000;
+
   --color-primary-900: hsl(256, 43%, 7%);
   --color-primary-800: hsl(240, 24%, 13%);
   --color-primary-700: hsl(243, 26%, 15%);
@@ -200,8 +198,6 @@
   --color-primary-300: hsl(251, 13%, 68%);
   --color-primary-200: hsl(240, 15%, 76%);
   --color-primary-100: hsl(240, 21%, 88%);
-
-  --color-natural-100: hsl(0, 0%, 100%);
 
   --color-accent-400: hsl(256, 43%, 40%);
   --color-accent-300: hsl(249, 50%, 13%);
@@ -215,28 +211,9 @@
   --color-border-1: var(--primary-500);
   --color-border-2: var(--primary-600);
 
-
-  --color-default-bg: rgb(22, 20, 21);
-  --color-primaryBg: #E8EBF4;
-  --color-secondaryBg: #FEFEFE;
-  --color-primaryBgDark: #17293f;
-  --color-secondaryBgDark: #444445;
-  --color-radialPink: #6B62CC;
-  --color-radialBlue: #9B53CC;
-  --color-radialPurple: #CB43CB;
-  --color-tertiary: '#151030';
-
   --quoteBg: linear-gradient(180deg, #6B62CC 0%, #9B53CC 50%, #CB43CB 100%);
   --color-yt-frosted-glass-desktop: rgba(15, 15, 15, 0.8);
   --color-yt-frosted-glass-mobile: rgba(15, 15, 15, 0.7);
-
-  --color-primaryText: #313E4E;
-  --color-secondaryText: #84898C;
-  --color-primaryTextDark: rgb(194, 196, 249);
-  --color-secondaryTextDark: rgb(218, 215, 215);
-
-  --color-primaryAccent: #043b6e;
-  --color-secondaryAccent: #4187C4;
 
   --color-border-1: #FFFFFF;
   --color-border-2: #000000;
@@ -250,50 +227,26 @@
 @layer base {
   :root {
     --bronze-1: #f3c55e;
-    --bronze-2: #3b2a0c;
-    --silver-1: #c0c0c0;
-    --silver-2: #a8a8a8;
-    --gold-1: #ffd700;
-    --gold-2: #b8860b;
-    --diamond-1: #b9f2ff;
+    --text-primary-dark: #ffffff;
+    --text-primary-light: #000000;
     --primary-900: hsl(256, 43%, 7%);
     --primary-800: hsl(240, 24%, 13%);
     --primary-700: hsl(243, 26%, 15%);
     --primary-600: hsl(252, 9%, 22%);
     --primary-500: hsl(259, 13%, 28%);
     --primary-400: hsl(253, 22%, 32%);
-
     --primary-300: hsl(251, 13%, 68%);
     --primary-200: hsl(240, 15%, 76%);
     --primary-100: hsl(240, 21%, 88%);
-
-    --natural-100: hsl(0, 0%, 100%);
 
     --accent-400: hsl(256, 43%, 40%);
     --accent-300: hsl(249, 55%, 37%);
     --accent-200: hsl(205, 67%, 10%);
     --accent-100: #352975;
 
-    --surface-1: var(--primary-900);
-    --surface-2: var(--primary-800);
-    --surface-3: var(--primary-700);
-
     --border-width: 1px;
     --border-1: var(--primary-500);
     --border-2: var(--primary-600);
-
-
-    --default-bg: rgb(22, 20, 21);
-    --primaryBg: rgb(232, 235, 244);
-    --secondaryBg: rgb(254, 254, 254);
-    --primaryBgDark: rgb(23, 41, 63);
-    --secondaryBgDark: rgb(68, 68, 69);
-    --radialPink: rgb(203, 67, 203);
-    --radialBlue: rgb(107, 98, 204);
-    --radialPurple: rgb(155, 83, 204);
-    --tertiary: rgb(21, 16, 48);
-    --black-500: rgb(22, 20, 21);
-    --black-600: rgb(15, 15, 15);
 
 
     --quoteBg: linear-gradient(180deg, var(--radialPurple) 0%, var(--radialBlue) 50%, var(--radialPurple) 100%);
@@ -302,26 +255,10 @@
     --yt-frosted-glass-mobile: rgb(15, 15, 15);
     --yt-frosted-glass-mobile-opacityReduced: rgba(15, 15, 15, 0.7);
 
-    --primaryText: rgb(49, 62, 78);
-    --secondaryText: rgb(132, 137, 140);
-    --primaryTextDark: rgb(194, 196, 249);
-    --secondaryTextDark: rgb(218, 215, 215);
-
-    --primaryAccent: rgb(4, 59, 110);
-    --secondaryAccent: rgb(65, 135, 196);
-
     --primaryModelAccent: #f3e1c7;
 
     --advisor: 'Advisor', sans-serif;
 
-    /*hero section 3d colors*/
-    /* 
-    --tile-color-face     : main tile face color;
-    --tile-color-edge     : tile side/edge color;
-    --tile-color-grout    : background / grout gap color;
-    --tile-color-specular : highlight color for the 3D gloss;
-    --hero-bg             : canvas background;
- */
     --tile-color-face: #f0ede8;
     --tile-color-edge: #c8c3bc;
     --tile-color-grout: #2a2825;

@@ -2,6 +2,7 @@ import { ContentBoxProps } from "./ContentBox.types";
 import Image from "next/image";
 import Button from "@/components/Button/Button";
 import { cn } from "@/utils/utils";
+import Typography from "@/components/Typography/Typography";
 
 const ContentBox = ({
     heroTitle,
@@ -23,13 +24,13 @@ const ContentBox = ({
                 )}
             </div>
 
-            <p className={cn("text-base md:text-lg text-stone-200 mb-8 mt-4 max-w-xl mx-auto leading-relaxed text-center text-black", { 'text-white': variant === 'dark' })}>
+            <Typography variant="p" size="md" weight="500" className={cn("text-base md:text-lg text-stone-200 mb-8 mt-4 max-w-xl mx-auto leading-relaxed text-center text-text-primary-light", { 'text-text-primary-dark': variant === 'dark' })}>
                 {heroText || "När du inte vill tumma på kvaliteten"}
-            </p>
+            </Typography>
 
             {/* CTA buttons container restores mouse interactions */}
             <div className="flex flex-wrap gap-4 justify-center pointer-events-auto">
-                <Button variant="primary" size="md" className="px-7 py-3 text-base font-semibold bg-bronze-1 text-[#493a3a] rounded-lg shadow-md hover:bg-stone-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+                <Button variant="primary" size="md" className="px-7 py-3 text-base font-semibold bg-bronze-1 text-text-primary-light rounded-lg shadow-md hover:bg-stone-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
                     {heroCtaPrimary || "Ta reda på mer"}
                 </Button>
 
