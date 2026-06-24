@@ -25,7 +25,6 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
 
     return isNavDown && scrollPos > window.innerHeight / 3
   }
-
   const handleKeyDown = (ev: KeyboardEvent) => {
     if (ev.key === 'Escape' && showMenu) {
       ev.preventDefault()
@@ -66,14 +65,14 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
     event: 'scroll',
     callback: handleScroll,
   })
-
+  console.log(variant)
   return (
     <>
       <nav
         className={cn(
           'fixed inset-0 z-30 flex h-20 items-center justify-between overflow-y-visible bg-transparent px-4 text-white transition-all duration-300 select-none md:px-6 xl:px-6',
           { 'opacity-0': !isNavDown },
-          { 'bg-secondaryBg shadow-lg': withBg || isNavBellow() },
+          { 'bg-primaryBgLight shadow-lg': withBg || isNavBellow() },
           { 'bg-primaryBgDark': variant === 'dark' },
         )}
       >
@@ -104,12 +103,12 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
               <Typography
                 variant='p'
                 className={cn(
-                  'group font-inria-sherif text-primaryText relative text-2xl font-normal transition-colors duration-300 hover:text-slate-900',
-                  { 'text-primaryBg': variant === 'dark' },
+                  'group font-advisor text-text-primary-light relative text-2xl font-normal transition-colors duration-300 hover:text-slate-900',
+                  { 'text-text-primary-dark': variant === 'dark' },
                 )}
               >
                 {link.title}
-                <span className='absolute inset-x-0 -bottom-px h-[2px] bg-gradient-to-r from-[#2F3BEA] to-[#B1159F] opacity-0 transition group-hover:opacity-100'></span>
+                <span className='absolute inset-x-0 -bottom-px h-[2px] bg-primary-accent opacity-0 transition group-hover:opacity-100'></span>
               </Typography>
             </Link>
           ))}
@@ -119,7 +118,7 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
       <Button
         onClick={handleToggle}
         className={cn(
-          'hover:bg-primaryAccent fixed top-10 right-6 z-50 flex h-10 w-10 -translate-y-1/2 flex-col items-center justify-center gap-1 p-0 transition-opacity duration-300 xl:right-16 xl:hidden',
+          'hover:bg-primary-accent fixed top-10 right-6 z-50 flex h-10 w-10 -translate-y-1/2 flex-col items-center justify-center gap-1 p-0 transition-opacity duration-300 xl:right-16 xl:hidden',
           { 'bg-transparent hover:bg-transparent': !withBg && !isNavBellow() },
           { 'cursor-default opacity-0': !isNavDown },
         )}

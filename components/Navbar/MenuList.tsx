@@ -27,7 +27,7 @@ const MenuList = () => {
       />
       <aside
         className={cn(
-          'bg-secondaryAccent fixed top-0 left-full z-50 flex h-screen w-full max-w-[500px] scroll-pt-20 flex-col overflow-y-auto px-6 pt-20 pb-6 text-white transition-all duration-300 xl:p-16',
+          'bg-primary-400 fixed top-0 left-full z-50 flex h-screen w-full max-w-[500px] scroll-pt-20 flex-col overflow-y-auto px-6 pt-20 pb-6 text-white transition-all duration-300 xl:p-16',
           { '-translate-x-full': showMenu },
         )}
       >
