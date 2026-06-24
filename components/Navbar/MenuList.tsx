@@ -35,15 +35,15 @@ const MenuList = () => {
           <div
             key={link.path}
             className={cn('transition-colors duration-300', {
-              'text-primaryAccent': index !== linkIndex && linkIndex !== null,
+              'text-white': index !== linkIndex && linkIndex !== null,
             })}
             onMouseEnter={() => setLinkIndex(index)}
             onMouseLeave={() => setLinkIndex(null)}
           >
-            <Link href={link.path}>
+            <Link href={link.path} className="">
               <Typography
                 onClick={() => toggle(false)}
-                className={'py-2 text-end text-xl font-medium uppercase'}
+                className={'py-2 text-end text-xl font-medium uppercase hover:text-primary-accent transition-colors duration-300'}
                 size='lg'
               >
                 {link.title}

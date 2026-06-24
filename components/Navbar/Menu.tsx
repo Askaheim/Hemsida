@@ -72,7 +72,7 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
         className={cn(
           'fixed inset-0 z-30 flex h-20 items-center justify-between overflow-y-visible bg-transparent px-4 text-white transition-all duration-300 select-none md:px-6 xl:px-6',
           { 'opacity-0': !isNavDown },
-          { 'bg-primaryBgLight shadow-lg': withBg || isNavBellow() },
+          { 'bg-primary-100 shadow-lg': withBg || isNavBellow() },
           { 'bg-primaryBgDark': variant === 'dark' },
         )}
       >
@@ -81,7 +81,7 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
             <Image
               src={navbarData.logoDark}
               alt='corporate logo'
-              width={85 / 1.1}
+              width={65 / 1.1}
               height={36 / 1.1}
               className='max-w-[100px] md:max-w-none'
               loading='eager'
@@ -90,7 +90,7 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
             <Image
               src={navbarData.logo}
               alt='corporate logo'
-              width={85 / 1.1}
+              width={65 / 1.1}
               height={36 / 1.1}
               className='max-w-[100px] md:max-w-none'
               loading='eager'
