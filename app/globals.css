@@ -242,7 +242,7 @@
   --color-border-2: #000000;
 
   --font-poppins: 'Poppins';
-  --font-bebas: 'Bebas Neue';
+  --font-advisor: 'Advisor';
   --font-inria-sherif: 'Inria Serif';
 
 }
@@ -312,9 +312,7 @@
 
     --primaryModelAccent: #f3e1c7;
 
-    --poppins: 'Poppins', 'Bebas Neue', sans-serif;
-    --bebas: 'Bebas Neue', 'Poppins', sans-serif;
-    --inria-sherif: 'Inria Serif', sans-serif;
+    --advisor: 'Advisor', sans-serif;
 
     /*hero section 3d colors*/
     /* 
@@ -333,7 +331,7 @@
 }
 
 html {
-  font-family: var(--font-poppins);
+  font-family: var(--font-advisor);
   color: var(--primaryText);
   background-color: var(--secondaryBg);
 }

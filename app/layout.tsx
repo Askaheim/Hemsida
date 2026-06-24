@@ -6,26 +6,40 @@ import apolloClient from '@/lib/apolloClient'
 import previewClient from '@/lib/previewClient'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import type { Metadata } from 'next'
-import { Bebas_Neue, Inria_Serif, Poppins } from 'next/font/google'
+import localFont from 'next/font/local'
 import { draftMode } from 'next/headers'
 import Script from 'next/script'
 import './globals.css'
 
-
-const poppins = Poppins({
-  variable: '--font-poppins',
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-})
-const bebasNeue = Bebas_Neue({
-  variable: '--font-bebas-neue',
-  subsets: ['latin'],
-  weight: ['400'],
-})
-const inriaSerif = Inria_Serif({
-  variable: '--font-inria-serif',
-  subsets: ['latin'],
-  weight: ['300', '400', '700'],
+const advisor = localFont({
+  src: [
+    {
+      path: '../public/fonts/Advisor_SSi.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Advisor_SSi_Bold.ttf',
+      weight: '900',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Advisor_Black_SSi_Black_Italic.ttf',
+      weight: '900',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/AdvisorMedium.ttf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/AdvisorItalic.ttf',
+      weight: '400',
+      style: 'italic',
+    }
+  ],
+  variable: '--font-advisor',
 })
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -83,7 +97,7 @@ export default async function RootLayout({
   return (
     <html
       lang='sv'
-      className={`${poppins.variable} ${bebasNeue.variable} ${inriaSerif} antialiased`}
+      className={`${advisor.variable} antialiased`}
     >
       <body className={'max-w-[100vw] overflow-x-hidden'}>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
