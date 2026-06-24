@@ -17,7 +17,7 @@
   width: calc(var(--spacing) * 5);
   transform-origin: right;
   border-radius: calc(infinity * 1px);
-  background-color: var(--secondaryBg);
+  background-color: var(--primary-900);
   transition-property: all;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration)
@@ -72,28 +72,6 @@
   background: linear-gradient(180deg, #6B62CC 0%, #9B53CC 50%, #CB43CB 100%);
   background-blend-mode: exclusion;
 }
-
-/* @utility frostedCard {
-  --border-width: 1px;
-  border-radius: 1rem;
-  position: relative;
-
-  background: hsl(from var(--yt-frosted-glass-desktop) h s l / 0.2);
-  backdrop-filter: blur(10px);
-}
-
-@utility frostedCard::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  border-radius: inherit;
-  border: var(--border-width) solid transparent;
-  background: linear-gradient(var(--border-1), var(--border-2));
-  mask: linear-gradient(black 0 0) border-box,
-    linear-gradient(black 0 0) padding-box;
-  mask-composite: subtract;
-} */
 
 
 @layer components {
@@ -185,10 +163,11 @@
   --hero-bg: #1e1c1a;
 
   --color-bronze-1: #f3c55e;
-
+  --color-primary-accent: #f3c55e;
   --color-text-primary-dark: #ffffff;
   --color-text-primary-light: #000000;
-
+  --color-primaryBgDark: #060222;
+  --color-primaryBgLight: #f8e7cb;
   --color-primary-900: hsl(256, 43%, 7%);
   --color-primary-800: hsl(240, 24%, 13%);
   --color-primary-700: hsl(243, 26%, 15%);
@@ -227,8 +206,11 @@
 @layer base {
   :root {
     --bronze-1: #f3c55e;
+    --primaryAccent: #f3c55e;
     --text-primary-dark: #ffffff;
     --text-primary-light: #000000;
+    --primaryBgDark: #060222;
+    --primaryBgLight: #f8e7cb;
     --primary-900: hsl(256, 43%, 7%);
     --primary-800: hsl(240, 24%, 13%);
     --primary-700: hsl(243, 26%, 15%);
