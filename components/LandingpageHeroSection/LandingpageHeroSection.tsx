@@ -42,7 +42,7 @@ const LandingpageHeroSection = ({ heroTitle, heroText, heroImage, heroCtaPrimary
         camera={{ position: [0, 0, 10], fov: 32 }}
         gl={{ antialias: true, alpha: false }}
       >
-        <color attach="background" args={["#493a3a"]} />
+        <color attach="background" args={["#474064"]} />
         <ambientLight intensity={0.7} />
         <directionalLight position={[-4, 8, 6]} intensity={1.4} />
         <pointLight position={[0, -6, 4]} intensity={0.3} color="#f0ede8" />
