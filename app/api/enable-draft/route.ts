@@ -1,6 +1,7 @@
 // route handler with secret and slug
 import { cookies, draftMode } from 'next/headers'
 import { redirect } from 'next/navigation'
+// export { enableDraftHandler as GET } from "@contentful/vercel-nextjs-toolkit/app-router"
 
 export async function GET(request: Request) {
   // Parse query string parameters

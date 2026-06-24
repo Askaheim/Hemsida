@@ -1,3 +1,4 @@
+import { profile } from 'console'
 import { revalidatePath, revalidateTag } from 'next/cache'
 import { NextResponse } from 'next/server'
 
@@ -14,6 +15,7 @@ export async function POST(request: Request) {
 
   const tag = body.tag
   const path = body.path
+  const profile = body.profile
 
   if (!tag && !path) {
     return NextResponse.json({ message: 'No tag provided' }, { status: 400 })
@@ -28,7 +30,7 @@ export async function POST(request: Request) {
 
   // revalidate a specific tag
   if (tag) {
-    revalidateTag(tag)
+    revalidateTag(tag, profile)
     console.log(`Revalidated tag: ${tag} at ${Date.now()}`)
   }
 
