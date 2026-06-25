@@ -10,6 +10,7 @@ import localFont from 'next/font/local'
 import { draftMode } from 'next/headers'
 import Script from 'next/script'
 import './globals.css'
+import { GET_NAVBAR } from '@/queries/getNavbar'
 
 const advisor = localFont({
   src: [
@@ -90,9 +91,16 @@ export default async function RootLayout({
   const client = isEnabled ? previewClient : apolloClient
 
 
+  const navbarLogos = await client.query({
+    query: GET_NAVBAR,
+    variables: { preview: isEnabled },
+  })
   const navbarData = {
-    logo: '/logotypes/logotype_RGB.png',
-    logoDark: '/logotypes/logotype-WHITE.png',
+    logo:
+      navbarLogos.data.navbarLogotypeCollection?.items[0]?.logotype?.url || '',
+    logoDark:
+      navbarLogos.data.navbarLogotypeCollection?.items[0]?.logotypeDarkmode
+        ?.url || '',
   }
   return (
     <html
