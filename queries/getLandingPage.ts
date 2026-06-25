@@ -17,7 +17,26 @@ export const GET_LANDING_DATA = gql`
       }
     }
   }
-}
+
+   frontPageTextSectionsCollection(limit: 5, preview: $preview) {
+      items {
+        sys {
+          id
+        }
+        sectionTitle
+        sectionText {
+          json
+        }
+        sectionImage {
+          sys {
+            id
+          }
+          url
+        }
+        order
+      }
+    }
+      }
 `
 
 /* export const GET_LANDING_DATA = gql`
