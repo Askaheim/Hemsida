@@ -8,10 +8,13 @@ import { draftMode } from 'next/headers'
 import { GET_LANDING_DATA } from '@/queries/getLandingPage'
 import Image from 'next/image'
 import TextBlock from '@/components/TextSections/TextSections'
+import HeroWrapper from '@/components/LandingpageHeroSection/HeroWrapper'
 
 export default async function Home() {
   const { isEnabled } = await draftMode()
   const client = isEnabled ? previewClient : apolloClient
+
+
 
   const { data } = await client.query({
     query: GET_LANDING_DATA,
@@ -35,10 +38,11 @@ export default async function Home() {
     <>
       <Menu withBg={true} />
       <main className="light:bg-primaryBgLight dark:bg-primaryBgDark">
-        <LandingpageHeroSection {...({ hero: heroData } as any)} />
+        {/* <LandingpageHeroSection {...({ hero: heroData } as any)} /> */}
+        <HeroWrapper heroData={heroData} />
 
         <section className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-stretch before:opacity-25">
-          <div className=' top-0 z-15 w-full overflow-hidden'>
+          {/* <div className=' top-0 z-15 w-full overflow-hidden'>
             <Image
               src='/images/wave.png'
               alt='Background Image'
@@ -47,7 +51,7 @@ export default async function Home() {
               className='z-99 w-full'
               priority
             />
-          </div>
+          </div> */}
           <div className='section-contain'>
             {sortedFrontPageTextSections &&
               sortedFrontPageTextSections.map(block => (
