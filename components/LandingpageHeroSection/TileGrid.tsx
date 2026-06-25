@@ -11,7 +11,7 @@ const TileGrid = () => {
     // 1. Preload all textures BEFORE mounting the grid components
     useEffect(() => {
         const textureLoader = new THREE.TextureLoader();
-        const textureZoom = 0.5;
+        const textureZoom = 1;
         const offsetValue = (1 - textureZoom) / 2;
 
         textureLoader.load("/tiles/textures/tile_color.jpg", (colorTex) => {

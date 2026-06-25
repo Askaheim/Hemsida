@@ -6,6 +6,7 @@ import previewClient from '@/lib/previewClient'
 import { ContentfulLivePreview } from '@contentful/live-preview'
 import { draftMode } from 'next/headers'
 import { GET_LANDING_DATA } from '@/queries/getLandingPage'
+import Image from 'next/image'
 
 export default async function Home() {
   const { isEnabled } = await draftMode()
@@ -26,6 +27,20 @@ export default async function Home() {
       <Menu withBg={true} />
       <main>
         <LandingpageHeroSection />
+
+        <section className="bg-primaryBgLight">
+          <div className='absolute bottom-0 z-10 w-full overflow-hidden'>
+            <Image
+              src='/images/wave.png'
+              alt='Background Image'
+              width={1400}
+              height={50}
+              className='z-99 w-full'
+              priority
+            />
+          </div>
+
+        </section>
       </main>
     </>
   )
