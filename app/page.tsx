@@ -34,11 +34,11 @@ export default async function Home() {
   return (
     <>
       <Menu withBg={true} />
-      <main>
+      <main className="light:bg-primaryBgLight dark:bg-primaryBgDark">
         <LandingpageHeroSection {...({ hero: heroData } as any)} />
 
-        <section className="light:bg-primaryBgLight dark:bg-primaryBgDark relative z-10 bg-[url(/images/bgFixedNO.png)] bg-cover bg-center bg-no-repeat">
-          <div className='absolute bottom-0 z-10 w-full overflow-hidden'>
+        <section className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-stretch before:opacity-25">
+          <div className=' top-0 z-15 w-full overflow-hidden'>
             <Image
               src='/images/wave.png'
               alt='Background Image'
