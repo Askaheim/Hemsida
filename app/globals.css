@@ -167,7 +167,7 @@
   --color-text-primary-dark: #ffffff;
   --color-text-primary-light: #000000;
   --color-primaryBgDark: #060222;
-  --color-primaryBgLight: #f8e7cb;
+  --color-primaryBgLight: #f3f2ef;
   --color-primary-900: hsl(256, 43%, 7%);
   --color-primary-800: hsl(240, 24%, 13%);
   --color-primary-700: hsl(243, 26%, 15%);
@@ -210,7 +210,7 @@
     --text-primary-dark: #ffffff;
     --text-primary-light: #000000;
     --primaryBgDark: #060222;
-    --primaryBgLight: #f8e7cb;
+    --primaryBgLight: #f3f2ef;
     --primary-900: hsl(256, 43%, 7%);
     --primary-800: hsl(240, 24%, 13%);
     --primary-700: hsl(243, 26%, 15%);

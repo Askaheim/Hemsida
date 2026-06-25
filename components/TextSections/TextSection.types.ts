@@ -12,6 +12,7 @@ export interface BlockProps {
   sectionText?: { json: RichTextDocument }
   sectionImage?: ImageProps
   order: number
+  centerTextsection?: boolean
 }
 
 export interface TextBlockProps extends React.HTMLAttributes<HTMLDivElement> {

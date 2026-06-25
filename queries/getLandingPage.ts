@@ -1,21 +1,43 @@
 import { gql } from '@apollo/client'
 export const GET_LANDING_DATA = gql`
-  query GetData($preview: Boolean) {
-    heroSectionCollection(limit: 1, preview: $preview) {
+ query GetData($preview: Boolean) {
+  heroSectionCollection(limit: 1, preview: $preview) {
+    items {
+      heroTitle
+      heroText {
+        json
+      }
+      heroImage {
+        url
+      }
+      heroCtaPrimary
+      heroCtaSecondary
+      sys {
+        __typename
+      }
+    }
+  }
+
+   frontPageTextSectionsCollection(limit: 5, preview: $preview) {
       items {
-        heroTitle
-        heroText 
-        heroImage {
+        sys {
+          id
+        }
+        sectionTitle
+        sectionText {
+          json
+        }
+        sectionImage {
+          sys {
+            id
+          }
           url
         }
-        heroCtaPrimary
-        heroCtaSecondary
-        sys {
-          __typename
-        }
+        order
+        centerTextsection
       }
-   }    
-  }
+    }
+      }
 `
 
 /* export const GET_LANDING_DATA = gql`

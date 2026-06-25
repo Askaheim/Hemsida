@@ -17,17 +17,22 @@ const ContentBox = ({
         <div className="max-w-2xl w-full p-8 md:p-12 bg-[#493a3a]/60 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl">
 
             <div className="flex justify-center">
-                {variant === 'dark' ? (
-                    <Image src="/logotypes/logotype_BIG_TEXT_WHITE.png" alt="White Logo" width={300} height={300} />
+                {heroImage ? (
+                    <Image src={heroImage.url} alt="Askaheim logotype" width={300} height={300} />
                 ) : (
-                    <Image src="/logotypes/logotype_BIG_TEXT.png" alt="dark logo" width={300} height={300} />
-                )}
+                    variant === 'dark' ? (
+                        <Image src="/logotypes/logotype_BIG_TEXT_WHITE.png" alt="White Logo" width={300} height={300} />
+                    ) : (
+                        <Image src="/logotypes/logotype_BIG_TEXT.png" alt="dark logo" width={300} height={300} />
+                    ))}
             </div>
 
-            <Typography variant="p" size="md" weight="500" className={cn("text-base md:text-lg text-stone-200 mb-8 mt-4 max-w-xl mx-auto leading-relaxed text-center text-text-primary-light", { 'text-text-primary-dark': variant === 'dark' })}>
-                {heroText || "När du inte vill tumma på kvaliteten"}
-            </Typography>
+            {heroText && heroText.json.content.map((item, index: number) => (
 
+                <Typography key={index} variant="p" size="md" weight="500" className={cn("text-base md:text-lg text-text-primary-light mb-8 mt-4 max-w-xl mx-auto leading-relaxed text-center", { 'text-text-primary-dark': variant === 'dark' })}>
+                    {item.content[0].value || "När du inte vill tumma på kvaliteten"}
+                </Typography>
+            ))}
             {/* CTA buttons container restores mouse interactions */}
             <div className="flex flex-wrap gap-4 justify-center pointer-events-auto">
                 <Button variant="primary" size="md" className="px-7 py-3 text-base font-semibold bg-bronze-1 text-text-primary-light rounded-lg shadow-md hover:bg-stone-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
