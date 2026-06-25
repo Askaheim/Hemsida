@@ -6,9 +6,10 @@ import { LandingpageHeroSectionProps } from "./LandingpageHeroSection.types";
 import ContentBox from "../ContentBox/ContentBox";
 import { motion, Variants } from 'framer-motion';
 
-const LandingpageHeroSection = ({ heroTitle, heroText, heroImage, heroCtaPrimary, heroCtaSecondary }: LandingpageHeroSectionProps) => {
+const LandingpageHeroSection = ({ hero }: LandingpageHeroSectionProps) => {
+  const { heroTitle, heroText, heroImage, heroCtaPrimary, heroCtaSecondary } = hero;
 
-  // Your slideIn function with delay built-in
+  // slideIn function with delay built-in
   const slideIn = (
     direction: string,
     type: string,

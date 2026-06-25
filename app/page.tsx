@@ -26,9 +26,9 @@ export default async function Home() {
     <>
       <Menu withBg={true} />
       <main>
-        <LandingpageHeroSection />
+        <LandingpageHeroSection {...({ hero: heroData } as any)} />
 
-        <section className="bg-primaryBgLight">
+        <section className="light:bg-primaryBgLight dark:bg-primaryBgDark relative z-10 bg-[url(/images/bgFixedNO.png)] bg-cover bg-center bg-no-repeat">
           <div className='absolute bottom-0 z-10 w-full overflow-hidden'>
             <Image
               src='/images/wave.png'

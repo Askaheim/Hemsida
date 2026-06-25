@@ -1,16 +1,7 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-
-interface TileProps {
-    col: number;
-    row: number;
-    delay: number;
-    gridOffsetX: number;
-    gridOffsetY: number;
-    materials: any;
-    geometry: any;
-}
+import { TileProps } from "./LandingpageHeroSection.types";
 
 const Tile = ({ col, row, delay, gridOffsetX, gridOffsetY, materials, geometry }: TileProps) => {
     const mesh = useRef<THREE.Mesh>(null);

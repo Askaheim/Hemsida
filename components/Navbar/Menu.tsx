@@ -65,7 +65,6 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
     event: 'scroll',
     callback: handleScroll,
   })
-  console.log(variant)
   return (
     <>
       <nav
@@ -76,7 +75,7 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
           { 'bg-primaryBgDark': variant === 'dark' },
         )}
       >
-        <Link href={'/'}>
+        <Link href={'/'} className="hover:bg-primary-accent hover:rounded-lg hover:p-1 transition-all duration-300 hover:ring-1 hover:ring-primary-accent">
           {variant === 'dark' ? (
             <Image
               src={navbarData.logoDark}

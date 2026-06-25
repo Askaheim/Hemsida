@@ -1,18 +1,30 @@
 export interface LandingpageHeroSectionProps {
-    heroTitle?: string;
-    heroText?: {
-        json: {
-            content: Array<{
+    hero: {
+        heroTitle?: string;
+        heroText: {
+            json: {
                 content: Array<{
-                    value: string;
+                    content: Array<{
+                        value: string;
+                    }>;
                 }>;
-            }>;
+            };
+        };
+        heroCtaPrimary?: string;
+        heroCtaSecondary?: string;
+        heroImage?: {
+            url: string;
+
         };
     };
-    heroCtaPrimary?: string;
-    heroCtaSecondary?: string;
-    heroImage?: {
-        url: string;
-        alt: string;
-    };
+}
+
+export interface TileProps {
+    col: number;
+    row: number;
+    delay: number;
+    gridOffsetX: number;
+    gridOffsetY: number;
+    materials: any;
+    geometry: any;
 }
