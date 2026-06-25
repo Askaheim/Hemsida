@@ -57,7 +57,7 @@ const CenterTextBlock: React.FC<TextBlockProps> & {
             locale: 'en-US',
           })}
           variant='h2'
-          className='font-poppins text-primaryText text-center font-normal'
+          className='font-advisor dark:text-text-primary-dark light:text-text-primary-light text-center font-normal'
         >
           {block.sectionTitle}
         </Typography>
@@ -67,7 +67,7 @@ const CenterTextBlock: React.FC<TextBlockProps> & {
             fieldId: 'logos',
             locale: 'en-US',
           })}
-          className='font-inria-sherif text-secondaryText flex flex-col gap-4 text-center text-xl font-normal'
+          className='font-poppins dark:text-text-primary-dark light:text-text-primary-light flex flex-col gap-4 text-center text-xl font-normal'
         >
           {block.sectionText &&
             documentToReactComponents(block.sectionText.json, richTextOptions)}
@@ -79,7 +79,7 @@ const CenterTextBlock: React.FC<TextBlockProps> & {
           alt='Bild för text blocket'
           width={3120}
           height={1760}
-          quality={80}
+          quality={100}
           className='aspect-square h-full rounded-lg object-cover object-center'
           {...ContentfulLivePreview.getProps({
             assetId: block?.sys?.id ?? '',

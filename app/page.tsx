@@ -9,6 +9,7 @@ import { GET_LANDING_DATA } from '@/queries/getLandingPage'
 import Image from 'next/image'
 import TextBlock from '@/components/TextSections/TextSections'
 import HeroWrapper from '@/components/LandingpageHeroSection/HeroWrapper'
+import CenterTextBlock from '@/components/TextSections/CenterTextSection'
 
 export default async function Home() {
   const { isEnabled } = await draftMode()
@@ -33,7 +34,6 @@ export default async function Home() {
     (a, b) => a.order - b.order,
   )
 
-
   return (
     <>
       <Menu withBg={true} />
@@ -42,29 +42,36 @@ export default async function Home() {
         <HeroWrapper heroData={heroData} />
 
         <section className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-stretch before:opacity-25">
-          {/* <div className=' top-0 z-15 w-full overflow-hidden'>
-            <Image
-              src='/images/wave.png'
-              alt='Background Image'
-              width={1400}
-              height={50}
-              className='z-99 w-full'
-              priority
-            />
-          </div> */}
-          <div className='section-contain'>
+
+          <div className='section-contain mt-0'>
             {sortedFrontPageTextSections &&
               sortedFrontPageTextSections.map(block => (
-                <TextBlock.Section
-                  key={block.order}
-                  className={
-                    'mx-auto my-16 max-w-[1440px] px-6 md:my-32 md:px-16'
-                  }
-                  reverse={block.order % 2 === 0 ? true : false}
-                >
-                  <TextBlock block={block} showImage={true} />
-                </TextBlock.Section>
-              ))}
+
+                (block.centerTextsection ? (
+                  <CenterTextBlock
+                    key={block.order}
+                    className='my-8 lg:my-10'
+                    block={sortedFrontPageTextSections[0]}
+                    showImage={false}
+                    {...ContentfulLivePreview.getProps({
+                      entryId:
+                        data?.frontPageTextSectionsCollection?.items[0]?.sys?.id,
+                      fieldId: 'paragraph',
+                      locale: 'sv-SE',
+                    })}
+                  />
+                ) : (
+
+                  <TextBlock.Section
+                    key={block.order}
+                    className={
+                      'mx-auto my-16 max-w-[1440px] px-6 md:my-32 md:px-16'
+                    }
+                    reverse={block.order % 2 === 0 ? true : false}
+                  >
+                    <TextBlock block={block} showImage={true} />
+                  </TextBlock.Section>
+                ))))}
           </div>
         </section>
       </main>

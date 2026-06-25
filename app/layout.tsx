@@ -7,6 +7,7 @@ import previewClient from '@/lib/previewClient'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { Poppins } from 'next/font/google'
 import { draftMode } from 'next/headers'
 import Script from 'next/script'
 import './globals.css'
@@ -41,6 +42,12 @@ const advisor = localFont({
     }
   ],
   variable: '--font-advisor',
+})
+
+const poppins = Poppins({
+  variable: '--font-poppins',
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 })
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -105,7 +112,7 @@ export default async function RootLayout({
   return (
     <html
       lang='sv'
-      className={`${advisor.variable} antialiased`}
+      className={`${advisor.variable} ${poppins.variable} antialiased`}
     >
       <body className={'max-w-[100vw] overflow-x-hidden'}>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>

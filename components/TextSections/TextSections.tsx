@@ -44,7 +44,7 @@ const TextBlock: React.FC<TextBlockProps> & {
   return (
     <div
       className={cn(
-        'text-primaryText grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10 md:group-data-[reverse="true"]:[&>div]:odd:order-2 md:[&>div]:even:order-2 md:group-data-[reverse="true"]:[&>div]:even:order-1 md:[&>img]:even:order-1',
+        'grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10 md:group-data-[reverse="true"]:[&>div]:odd:order-2 md:[&>div]:even:order-2 md:group-data-[reverse="true"]:[&>div]:even:order-1 md:[&>img]:even:order-1',
         { 'text-white': variant === 'light' },
         className,
       )}
@@ -58,7 +58,7 @@ const TextBlock: React.FC<TextBlockProps> & {
             locale: 'en-US',
           })}
           variant='h2'
-          className='font-poppins text-primaryText'
+          className='font-advisor dark:text-text-primary-dark light:text-text-primary-light'
         >
           {block.sectionTitle}
         </Typography>
@@ -68,7 +68,7 @@ const TextBlock: React.FC<TextBlockProps> & {
             fieldId: 'logos',
             locale: 'en-US',
           })}
-          className='font-inria-sherif text-secondaryText flex flex-col gap-4'
+          className='font-poppins dark:text-text-primary-dark light:text-text-primary-light flex flex-col gap-4'
         >
           {block.sectionText &&
             documentToReactComponents(block.sectionText.json, richTextOptions)}

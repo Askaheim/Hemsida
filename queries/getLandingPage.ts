@@ -34,6 +34,7 @@ export const GET_LANDING_DATA = gql`
           url
         }
         order
+        centerTextsection
       }
     }
       }
