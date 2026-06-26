@@ -54,7 +54,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
   if (!context) {
     throw new Error('Menu must be used within a MenuContextProvider')
   }
-  const { navbarData } = context
+
   const footerData = {
     sections: [
       {
@@ -68,6 +68,15 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
           { title: 'Cookiepolicy', path: '/cookiepolicy' },
           { title: 'Användarvillkor', path: '/anvandarvillkor' },
         ],
+      },
+      {
+        sectionTitle: 'Besöksaddress',
+        links: [
+          {
+            title: 'Ricklevägen 28 44833 Floda',
+            path: 'https://share.google/MnevXKBpB0CPMkVph'
+          }
+        ]
       }
     ],
     socialMedia: socialMediaData,
@@ -75,8 +84,8 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
 
   return (
     <footer className='dark:bg-accent-100 bg-bronze-1/20 dark:text-text-primary-dark text-text-primary-light  ' >
-      <div className='pb-12 pl-12 md:px-8 lg:px-10 bg-[url(/images/footerBG.png)]'>
-        <div className='relative mx-auto flex max-w-[1200px] flex-col justify-between gap-4 overflow-hidden md:flex-row md:items-start md:gap-0 md:overflow-visible'>
+      <div className='pb-12 pl-12 md:px-8 lg:px-10 bg-[url(/images/footerBG.png)] flex flex-col'>
+        <div className='relative flex max-w-[1200px] flex-col justify-around gap-4 overflow-hidden md:flex-row md:items-start md:gap-0 md:overflow-visible'>
           {/* columns */}
           {footerData.sections.map((section, index) => (
             <Section key={index}>
@@ -136,25 +145,27 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
               ),
             )}
           </Section>
+
+        </div>
+        <div className='flex items-center justify-center py-4'>
           {/* Footer logo */}
           {variant === 'dark' ? (
             <Image
-              src={navbarData.logoDark}
+              src='/logotypes/logotype_BIG_TEXT_WHITE.png'
               alt='Logo'
-              width={1000}
-              height={1000}
-              className='absolute right-0 z-10 translate-x-1/2 md:hidden'
+              width={500} // Sätt till max möjlig bredd
+              height={500}
+              className='w-48 h-auto md:w-64 lg:w-80 transition-all'
             />
           ) : (
             <Image
-              src={navbarData.logo}
+              src='/logotypes/logotype_BIG_TEXT.png'
               alt='Logo'
-              width={1000}
-              height={1000}
-              className='absolute right-0 z-10 translate-x-1/2 md:hidden'
+              width={500}
+              height={500}
+              className='w-48 h-auto md:w-64 lg:w-80 transition-all'
             />
-          )
-          }
+          )}
         </div>
       </div>
 
