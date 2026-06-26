@@ -74,13 +74,13 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
   }
 
   return (
-    <footer className='dark:bg-primaryAccent light:bg-accent-400 dark:text-text-primary-dark light:text-text-primary-light ' >
-      <div className='py-12 pl-12 md:px-8 lg:px-10'>
+    <footer className='dark:bg-accent-100 bg-bronze-1/20 dark:text-text-primary-dark text-text-primary-light  ' >
+      <div className='pb-12 pl-12 md:px-8 lg:px-10 bg-[url(/images/footerBG.png)]'>
         <div className='relative mx-auto flex max-w-[1200px] flex-col justify-between gap-4 overflow-hidden md:flex-row md:items-start md:gap-0 md:overflow-visible'>
           {/* columns */}
           {footerData.sections.map((section, index) => (
             <Section key={index}>
-              <Section.Title className='dark:text-text-primary-dark light:text-text-primary-light font-advisor underline sm:mt-2'>
+              <Section.Title className='dark:text-text-primary-dark text-text-primary-light font-advisor underline sm:mt-2'>
                 {section.sectionTitle}
               </Section.Title>
               <Section.Content>
@@ -91,7 +91,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
                   >
                     <Typography
                       size='sm'
-                      className='dark:text-text-primary-dark light:text-text-primary-light font-poppins text-lg transition-colors hover:text-slate-900 hover:underline'
+                      className='dark:text-text-primary-dark text-text-primary-light font-poppins text-lg transition-colors hover:text-slate-900 hover:underline'
                     >
                       {link.title}
                     </Typography>
@@ -103,7 +103,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
 
           {/* Sociala medier */}
           <Section className='flex flex-col'>
-            <Section.Title className='dark:text-text-primary-dark light:text-text-primary-light font-advisor underline sm:mt-2'>
+            <Section.Title className='dark:text-text-primary-dark text-text-primary-light font-advisor underline sm:mt-2'>
               Sociala medier
             </Section.Title>
             {footerData.socialMedia.map(
@@ -116,7 +116,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
                     href={section.socialmediaLink}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='dark:text-text-primary-dark light:text-text-primary-light flex items-center gap-2 transition-colors w-full hover:text-slate-900 hover:underline'
+                    className='dark:text-text-primary-dark text-text-primary-light flex items-center gap-2 transition-colors w-full hover:text-slate-900 hover:underline'
                   >
                     <Image
                       src={section.socialMediaIcon.url}
@@ -127,7 +127,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
                     />
                     <Typography
                       size='sm'
-                      className='dark:text-text-primary-dark light:text-text-primary-light font-poppins text-lg transition-colors hover:text-slate-900 hover:underline'
+                      className='dark:text-text-primary-dark text-text-primary-light font-poppins text-lg transition-colors hover:text-slate-900 hover:underline'
                     >
                       {section.socialmediaTitle}
                     </Typography>

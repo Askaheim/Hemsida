@@ -206,7 +206,7 @@
 @layer base {
   :root {
     --bronze-1: #f3c55e;
-    --primaryAccent: #f3c55e;
+    --primary-accent: #f3c55e;
     --text-primary-dark: #ffffff;
     --text-primary-light: #000000;
     --primaryBgDark: #060222;
