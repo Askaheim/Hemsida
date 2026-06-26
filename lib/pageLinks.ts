@@ -1,4 +1,4 @@
-type PageLinkProps = {
+export type PageLinkProps = {
   title: string
   path: string
 }[]

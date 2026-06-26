@@ -12,6 +12,7 @@ import { draftMode } from 'next/headers'
 import Script from 'next/script'
 import './globals.css'
 import { GET_NAVBAR } from '@/queries/getNavbar'
+import { SocialMediaSectionProps } from '@/components/Footer/Footer.types'
 
 const advisor = localFont({
   src: [
@@ -109,6 +110,8 @@ export default async function RootLayout({
       navbarLogos.data.navbarLogotypeCollection?.items[0]?.logotypeDarkmode
         ?.url || '',
   }
+
+  const socialMediaData = navbarLogos.data.socialMediaDataCollection?.items || []
   return (
     <html
       lang='sv'
@@ -120,9 +123,9 @@ export default async function RootLayout({
             <MenuList />
             <LivePreviewProvider isEnabled={isEnabled}>
               {children}
+              <Footer socialMediaData={socialMediaData} />
             </LivePreviewProvider>
           </MenuContextProvider>
-          <Footer />
         </AppRouterCacheProvider>
       </body>
       {isEnabled && <Script src='/live-preview.mjs' />}
