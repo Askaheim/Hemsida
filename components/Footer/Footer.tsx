@@ -84,7 +84,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
 
   return (
     <footer className='dark:bg-accent-100 bg-bronze-1/20 dark:text-text-primary-dark text-text-primary-light  ' >
-      <div className='pb-12 pl-12 md:px-8 lg:px-10 bg-[url(/images/footerBG.png)] flex flex-col'>
+      <div className='pb-12 pl-12 md:px-8 lg:px-10 bg-[url(/images/footerBG.png)] bg-no-repeat bg-cover flex flex-col'>
         <div className='relative flex max-w-[1200px] flex-col justify-around gap-4 overflow-hidden md:flex-row md:items-start md:gap-0 md:overflow-visible'>
           {/* columns */}
           {footerData.sections.map((section, index) => (
