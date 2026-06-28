@@ -114,7 +114,7 @@ export default async function RootLayout({
   return (
     <html
       lang='sv'
-      className={`${advisor.variable} ${poppins.variable} dark:text-text-primary-dark text-text-primary-light antialiased`}
+      className={`${advisor.variable} ${poppins.variable} dark:text-text-primary-dark text-text-primary-light scrollbar-hide antialiased`}
     >
       <body className={'max-w-[100vw] overflow-x-hidden'}>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>

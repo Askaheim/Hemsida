@@ -155,25 +155,17 @@
   }
 
   /* removes scrollbar whenever user scrolls */
-
-  ::-webkit-scrollbar {
-    width: 8px;
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 
-  ::-webkit-scrollbar-track {
-    background: transparent;
-    /* Seamless over your background pattern */
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3);
-    /* Soft, semi-transparent bar */
-    border-radius: 10px;
-  }
-
-  /* This class will be toggled by JavaScript only when scrolling */
-  .hide-scrollbar::-webkit-scrollbar-thumb {
-    background-color: transparent;
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 }
 
