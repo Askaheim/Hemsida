@@ -91,7 +91,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
   }
 
   return (
-    <footer className='dark:bg-accent-100 bg-bronze-1/20 dark:text-text-primary-dark text-text-primary-light  ' >
+    <footer className='dark:bg-accent-100 bg-bronze-1/20 dark:text-text-primary-dark text-text-primary-light border-t-2 border-t-border-2 ' >
       <div className='pb-12 pl-12 md:px-8 lg:px-10 bg-[url(/images/footerBG.png)] bg-no-repeat bg-cover flex flex-col'>
         <div className='relative flex flex-col justify-around gap-4 overflow-hidden my-8 md:my-12 md:flex-row md:items-start md:gap-0 md:overflow-visible'>
 
@@ -205,9 +205,11 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
       </div>
       <div className='w-full '>
         <div className='w-full flex justify-end'>
-          <Typography size='md' variant='p' className='font-poppins dark:text-text-primary-dark text-text-primary-light' >
-            Website powered by: <Link href='https://www.alexanderochson.vercel.app/' > Alexander&son</Link>
-          </Typography>
+          <Link href='https://www.alexanderochson.vercel.app/' >
+            <Typography size='md' variant='p' className='font-poppins dark:text-text-primary-dark text-text-primary-light p-1' >
+              Website powered by: Alexander&son
+            </Typography>
+          </Link>
         </div>
       </div>
     </footer>
