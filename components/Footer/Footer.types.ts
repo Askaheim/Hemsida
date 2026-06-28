@@ -14,34 +14,22 @@ export type FooterData = {
   logo: {
     footerLogo: { url: string }
   }[]
-  sections: {
-    sectionTitle: string
-    linkTexts: string[]
-  }[]
-  partners: {
-    partnerName: string
-    partnerLogo: { url: string }
-  }[]
-  socialMedia: {
-    socialMediaTitle: string
-    socialMediaIcon: { url: string }
-    linkToSocialmedia: string
-  }[]
-  backgroundText: string
+  socialMedia: SocialMediaSectionProps[]
 }
 
-export type FooterProps = {
-  footerData: FooterData
-}
-
-export type TextSection = {
-  sectionTitle: string
-  linkTexts: string[]
-}
-export type SocialMediaSection = {
-  socialMediaTitle: string
+export type SocialMediaSectionProps = {
+  socialmediaTitle: string
   socialMediaIcon: {
     url: string
   }
-  linkToSocialmedia: string
+  socialmediaLink: string
+}
+
+export type FooterLogoData = {
+  logo: string
+  logoDark: string
+}
+export type TextSection = {
+  sectionTitle: string
+  linkTexts: string[]
 }

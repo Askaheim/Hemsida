@@ -1,7 +1,6 @@
 export { default as Button } from '@/components/Button/Button';
 export { default as CardSection } from '@/components/CardSection/CardSection';
 export { default as CardSlider } from '@/components/CardSlider/CardSlider';
-export { default as CenterTextBlock } from '@/components/TextSections/CenterTextSection';
 export { default as ContactForm } from '@/components/ContactForm/ContactForm';
 export { default as Divider } from '@/components/Divider/Divider';
 export { default as Footer } from '@/components/Footer/Footer';
@@ -16,8 +15,4 @@ export { default as Preloader } from '@/components/PreLoader/PreLoader';
 export { default as QuoteSection } from '@/components/QuoteSection/QuoteSection';
 export { default as QuoteTextBlock } from '@/components/QuoteTextBlock/QuoteTextBlock';
 export { default as Skeleton } from '@/components/Skeleton/Skeleton';
-export { default as Slot } from '@/components/Slot/Slot';
-export { default as StoryBoard } from '@/components/StoryBoard/StoryBoard';
-export { default as TextBlock } from '@/components/TextSections/TextSections';
 export { default as Typography } from '@/components/Typography/Typography';
-export { richTextOptions } from '@/components/RichTextOptions/RichTextOptions';

@@ -141,6 +141,7 @@
     mask-composite: subtract;
   }
 
+  /* Removing scrollbar completly */
   .no-scrollbar {
     -ms-overflow-style: none;
     /* IE and Edge */
@@ -151,6 +152,20 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
     /* Chrome, Safari and Opera */
+  }
+
+  /* removes scrollbar whenever user scrolls */
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 }
 
@@ -206,7 +221,7 @@
 @layer base {
   :root {
     --bronze-1: #f3c55e;
-    --primaryAccent: #f3c55e;
+    --primary-accent: #f3c55e;
     --text-primary-dark: #ffffff;
     --text-primary-light: #000000;
     --primaryBgDark: #060222;
@@ -253,10 +268,8 @@ html {
   font-family: var(--font-advisor);
   color: var(--primaryText);
   background-color: var(--secondaryBg);
-}
-
-body {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 /* canvas- styles */

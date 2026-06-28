@@ -109,10 +109,12 @@ export default async function RootLayout({
       navbarLogos.data.navbarLogotypeCollection?.items[0]?.logotypeDarkmode
         ?.url || '',
   }
+
+  const socialMediaData = navbarLogos.data.socialMediaDataCollection?.items || []
   return (
     <html
       lang='sv'
-      className={`${advisor.variable} ${poppins.variable} antialiased`}
+      className={`${advisor.variable} ${poppins.variable} dark:text-text-primary-dark text-text-primary-light scrollbar-hide antialiased`}
     >
       <body className={'max-w-[100vw] overflow-x-hidden'}>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
@@ -120,9 +122,9 @@ export default async function RootLayout({
             <MenuList />
             <LivePreviewProvider isEnabled={isEnabled}>
               {children}
+              <Footer socialMediaData={socialMediaData} />
             </LivePreviewProvider>
           </MenuContextProvider>
-          <Footer />
         </AppRouterCacheProvider>
       </body>
       {isEnabled && <Script src='/live-preview.mjs' />}

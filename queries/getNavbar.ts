@@ -13,5 +13,14 @@ export const GET_NAVBAR = gql`
     }
   }
 }
+  socialMediaDataCollection(limit: 5, preview: $preview) {
+    items {
+      socialmediaTitle
+      socialMediaIcon {
+        url
+      }
+      socialmediaLink
+    }
+  }
 }
 `
