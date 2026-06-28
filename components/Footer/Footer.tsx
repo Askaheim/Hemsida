@@ -77,6 +77,19 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
             path: 'https://share.google/MnevXKBpB0CPMkVph'
           }
         ]
+      },
+      {
+        sectionTitle: 'Kontaktvägar',
+        links: [
+          {
+            title: 'E-post: info@askaheim.se',
+            path: 'info@askaheim.se'
+          },
+          {
+            title: 'Telefon: 0737077142',
+            path: '0737077142'
+          }
+        ]
       }
     ],
     socialMedia: socialMediaData,
@@ -86,6 +99,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
     <footer className='dark:bg-accent-100 bg-bronze-1/20 dark:text-text-primary-dark text-text-primary-light  ' >
       <div className='pb-12 pl-12 md:px-8 lg:px-10 bg-[url(/images/footerBG.png)] bg-no-repeat bg-cover flex flex-col'>
         <div className='relative flex max-w-[1200px] flex-col justify-around gap-4 overflow-hidden md:flex-row md:items-start md:gap-0 md:overflow-visible'>
+
           {/* columns */}
           {footerData.sections.map((section, index) => (
             <Section key={index}>
@@ -94,17 +108,43 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
               </Section.Title>
               <Section.Content>
                 {section.links.map((link, linkIndex) => (
-                  <Link
-                    key={linkIndex}
-                    href={link.path}
-                  >
-                    <Typography
-                      size='sm'
-                      className='dark:text-text-primary-dark text-text-primary-light font-poppins text-lg transition-colors hover:text-slate-900 hover:underline'
+                  link.title === 'E-post: info@askaheim.se' ? (
+                    <Link
+                      key={linkIndex}
+                      href={`mailto:${link.path}`}
                     >
-                      {link.title}
-                    </Typography>
-                  </Link>
+                      <Typography
+                        size='sm'
+                        className='dark:text-text-primary-dark text-text-primary-light font-poppins text-lg transition-colors hover:text-slate-900 hover:underline'
+                      >
+                        {link.title}
+                      </Typography>
+                    </Link>
+                  ) : link.title === 'Telefon: 0737077142' ? (
+                    <Link
+                      key={linkIndex}
+                      href={`tel:${link.path}`}
+                    >
+                      <Typography
+                        size='sm'
+                        className='dark:text-text-primary-dark text-text-primary-light font-poppins text-lg transition-colors hover:text-slate-900 hover:underline'
+                      >
+                        {link.title}
+                      </Typography>
+                    </Link>
+                  ) : (
+                    <Link
+                      key={linkIndex}
+                      href={link.path}
+                    >
+                      <Typography
+                        size='sm'
+                        className='dark:text-text-primary-dark text-text-primary-light font-poppins text-lg transition-colors hover:text-slate-900 hover:underline'
+                      >
+                        {link.title}
+                      </Typography>
+                    </Link>
+                  )
                 ))}
               </Section.Content>
             </Section>
@@ -153,7 +193,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
             <Image
               src='/logotypes/logotype_BIG_TEXT_WHITE.png'
               alt='Logo'
-              width={500} // Sätt till max möjlig bredd
+              width={500}
               height={500}
               className='w-48 h-auto md:w-64 lg:w-80 transition-all'
             />
@@ -168,8 +208,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
           )}
         </div>
       </div>
-
-    </footer >
+    </footer>
   )
 }
 

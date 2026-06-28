@@ -141,6 +141,7 @@
     mask-composite: subtract;
   }
 
+  /* Removing scrollbar completly */
   .no-scrollbar {
     -ms-overflow-style: none;
     /* IE and Edge */
@@ -153,39 +154,26 @@
     /* Chrome, Safari and Opera */
   }
 
-  .autohide-scrollbar {
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE/Edge */
-  }
+  /* removes scrollbar whenever user scrolls */
 
-  .autohide-scrollbar::-webkit-scrollbar {
-    display: none;
-    /* Chrome, Safari, Opera */
+  ::-webkit-scrollbar {
     width: 8px;
-    /* Set a clean width for when it does appear */
   }
 
-  .autohide-scrollbar:hover {
-    scrollbar-width: auto;
-    /* Firefox */
-  }
-
-  .autohide-scrollbar:hover::-webkit-scrollbar {
-    display: block;
-    /* Chrome, Safari, Opera */
-  }
-
-  .autohide-scrollbar::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track {
     background: transparent;
-    /* Makes the track invisible so it doesn't break your pattern */
+    /* Seamless over your background pattern */
   }
 
-  .autohide-scrollbar::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.3);
-    /* A soft, semi-transparent grey bar */
+    /* Soft, semi-transparent bar */
     border-radius: 10px;
+  }
+
+  /* This class will be toggled by JavaScript only when scrolling */
+  .hide-scrollbar::-webkit-scrollbar-thumb {
+    background-color: transparent;
   }
 }
 
@@ -289,6 +277,7 @@ html {
   color: var(--primaryText);
   background-color: var(--secondaryBg);
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 /* canvas- styles */

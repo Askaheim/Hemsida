@@ -12,7 +12,6 @@ import { draftMode } from 'next/headers'
 import Script from 'next/script'
 import './globals.css'
 import { GET_NAVBAR } from '@/queries/getNavbar'
-import { SocialMediaSectionProps } from '@/components/Footer/Footer.types'
 
 const advisor = localFont({
   src: [
@@ -115,7 +114,7 @@ export default async function RootLayout({
   return (
     <html
       lang='sv'
-      className={`${advisor.variable} ${poppins.variable} dark:text-text-primary-dark text-text-primary-light no-scrollbar antialiased`}
+      className={`${advisor.variable} ${poppins.variable} dark:text-text-primary-dark text-text-primary-light antialiased`}
     >
       <body className={'max-w-[100vw] overflow-x-hidden'}>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
