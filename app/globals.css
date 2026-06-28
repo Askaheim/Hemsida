@@ -152,6 +152,41 @@
     display: none;
     /* Chrome, Safari and Opera */
   }
+
+  .autohide-scrollbar {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+  }
+
+  .autohide-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+    width: 8px;
+    /* Set a clean width for when it does appear */
+  }
+
+  .autohide-scrollbar:hover {
+    scrollbar-width: auto;
+    /* Firefox */
+  }
+
+  .autohide-scrollbar:hover::-webkit-scrollbar {
+    display: block;
+    /* Chrome, Safari, Opera */
+  }
+
+  .autohide-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    /* Makes the track invisible so it doesn't break your pattern */
+  }
+
+  .autohide-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    /* A soft, semi-transparent grey bar */
+    border-radius: 10px;
+  }
 }
 
 @theme {
@@ -253,9 +288,6 @@ html {
   font-family: var(--font-advisor);
   color: var(--primaryText);
   background-color: var(--secondaryBg);
-}
-
-body {
   scroll-behavior: smooth;
 }
 
