@@ -70,15 +70,6 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
         ],
       },
       {
-        sectionTitle: 'Besöksaddress',
-        links: [
-          {
-            title: 'Ricklevägen 28 44833 Floda',
-            path: 'https://share.google/MnevXKBpB0CPMkVph'
-          }
-        ]
-      },
-      {
         sectionTitle: 'Kontaktvägar',
         links: [
           {
@@ -88,6 +79,10 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
           {
             title: 'Telefon: 0737077142',
             path: '0737077142'
+          },
+          {
+            title: 'Address: Nordenskiöldsgatan 13, Göteborg',
+            path: 'https://share.google/RHoQuP5RuBRbE9MDU'
           }
         ]
       }
@@ -98,7 +93,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
   return (
     <footer className='dark:bg-accent-100 bg-bronze-1/20 dark:text-text-primary-dark text-text-primary-light  ' >
       <div className='pb-12 pl-12 md:px-8 lg:px-10 bg-[url(/images/footerBG.png)] bg-no-repeat bg-cover flex flex-col'>
-        <div className='relative flex max-w-[1200px] flex-col justify-around gap-4 overflow-hidden md:flex-row md:items-start md:gap-0 md:overflow-visible'>
+        <div className='relative flex flex-col justify-around gap-4 overflow-hidden my-8 md:my-12 md:flex-row md:items-start md:gap-0 md:overflow-visible'>
 
           {/* columns */}
           {footerData.sections.map((section, index) => (
