@@ -203,6 +203,13 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
           )}
         </div>
       </div>
+      <div className='w-full '>
+        <div className='w-full flex justify-end'>
+          <Typography size='md' variant='p' className='font-poppins dark:text-text-primary-dark text-text-primary-light' >
+            Website powered by: <Link href='https://www.alexanderochson.vercel.app/' > Alexander&son</Link>
+          </Typography>
+        </div>
+      </div>
     </footer>
   )
 }
