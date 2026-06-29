@@ -6,7 +6,6 @@ import previewClient from '@/lib/previewClient'
 import { ContentfulLivePreview } from '@contentful/live-preview'
 import { draftMode } from 'next/headers'
 import { GET_LANDING_DATA } from '@/queries/getLandingPage'
-import Image from 'next/image'
 import TextBlock from '@/components/TextSections/TextSections'
 import HeroWrapper from '@/components/LandingpageHeroSection/HeroWrapper'
 import CenterTextBlock from '@/components/TextSections/CenterTextSection'
@@ -41,7 +40,7 @@ export default async function Home() {
         {/* <LandingpageHeroSection {...({ hero: heroData } as any)} /> */}
         <HeroWrapper heroData={heroData} />
 
-        <section className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-stretch before:opacity-25">
+        <section className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">
 
           <div className='section-contain mt-0'>
             {sortedFrontPageTextSections &&

@@ -22,15 +22,15 @@ export default function Error({ error, reset }: ErrorProps) {
       <Menu />
       <main className='section-contain min-h-screen'>
         <section className='mx-auto my-12 flex max-w-[500px] flex-col items-center gap-2 text-center md:mt-16'>
-          <PageTitle className='text-secondaryAccent font-bebas self-center text-center'>
-            FEL
+          <PageTitle className='dark:text-text-primary-dark text-text-primary-light font-advisor self-center text-center'>
+            ERROR
           </PageTitle>
-          <OctagonX size={200} color='#4187C4' />
-          <Typography variant='h3' className='font-bebas text-primaryAccent'>
+          <OctagonX size={200} color='#f3c55e' />
+          <Typography variant='h3' className='font-advisor dark:text-text-primary-dark text-text-primary-light'>
             Sidan kunde inte laddas
           </Typography>
           <Typography
-            className={'font-inria-sherif text-secondaryAccent text-center'}
+            className={'font-poppins dark:text-text-primary-dark text-text-primary-light text-center'}
           >
             Ett fel uppstod och sidan laddades inte ordentligt. Testa att ladda
             om sidan med knappen eller återgå till startsidan.

@@ -63,23 +63,23 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
   return (
     <div
       className={cn(
-        `flex w-full flex-col-reverse gap-10 xl:mt-24 xl:flex-row ${classNames}`,
+        `flex w-full flex-col-reverse gap-10 xl:mt-24 xl:flex-row ${classNames} items-center justify-center`,
         { props },
       )}
     >
       <motion.div
         variants={slideIn('left', 'tween', 0.2, 1)}
-        className='bg-secondaryAccent flex-[0.95] rounded-2xl p-8'
+        className='bg-primary-accent flex-[0.95] rounded-2xl p-8'
       >
         <Typography
           variant='p'
-          className={`${styles.sectionSubText} font-bebas text-white`}
+          className={`${styles.sectionSubText} font-poppins text-accent-400`}
         >
           {formData.formTitle}
         </Typography>
         <Typography
           variant='h3'
-          className={`${styles.sectionHeadText} font-poppins text-primaryAccent`}
+          className={`${styles.sectionHeadText} font-advisor text-white`}
         >
           {formData.subTitle}
         </Typography>
@@ -95,8 +95,8 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
               name='from'
               value={form.from}
               onChange={handleChange}
-              placeholder='Skriv ditt namn'
-              className='bg-primaryBg placeholder:text-secondaryText text-primaryText rounded-lg border-none px-6 py-4 font-medium outline-none'
+              placeholder='Skriv ditt namn här'
+              className='bg-primaryBgLight placeholder:text-primary-300 text-text-primary-dark rounded-lg border-none px-6 py-4 font-medium outline-none'
             />
           </label>
           <label className='flex flex-col'>
@@ -108,8 +108,8 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
               name='email'
               value={form.email}
               onChange={handleChange}
-              placeholder='Skriv din email'
-              className='bg-primaryBg placeholder:text-secondaryText text-primaryText rounded-lg border-none px-6 py-4 font-medium outline-none'
+              placeholder='Skriv din email här'
+              className='bg-primaryBgLight placeholder:text-primary-300 text-text-primary-dark rounded-lg border-none px-6 py-4 font-medium outline-none'
             />
           </label>
           <label className='flex flex-col'>
@@ -121,15 +121,15 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
               name='message'
               value={form.message}
               onChange={handleChange}
-              placeholder='Vad vill du säga?'
-              className='bg-primaryBg placeholder:text-secondaryText text-primaryText rounded-lg border-none px-6 py-4 font-medium outline-none'
+              placeholder='Vad vill du säga? Skriv ditt meddelande här'
+              className='bg-primaryBgLight placeholder:text-primary-300 text-text-primary-dark rounded-lg border-none px-6 py-4 font-medium outline-none'
             />
           </label>
           <Button
             variant='primary'
             size='md'
             type='submit'
-            className='shadow-primary bg-primaryAccent hover:text-primaryAccent w-fit rounded-xl px-8 py-3 font-bold text-white shadow-md outline-none hover:bg-white hover:shadow-lg'
+            className='shadow-primary bg-primary-accent hover:text-primary-accent border-2 border-white  w-fit rounded-xl px-8 py-3 font-bold text-white shadow-md outline-none hover:bg-white hover:shadow-lg'
           >
             {loading ? 'Skickar...' : 'Skicka Meddelande'}
           </Button>

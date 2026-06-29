@@ -42,18 +42,18 @@ const About = async () => {
   const coworkerSection = (data?.coworkersCollection?.items ??
     []) as coworkerBlockProps[]
   return (
-    <main className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-stretch before:opacity-25">
+    <main className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">
       <Menu withBg={true} />
       <PageTitle variant='light' className='mt-12 md:mt-18 mx-4 md:mx-8'>
         Om oss
       </PageTitle>
       <section className="section-contain mt-20 " >
         {sortedAboutPageTextSections &&
-          sortedAboutPageTextSections.map(block => (
+          sortedAboutPageTextSections.map((block, index) => (
 
             (block.centerTextsection ? (
               <CenterTextBlock
-                key={block.order}
+                key={index}
                 className='my-8 lg:my-10'
                 block={sortedAboutPageTextSections[0]}
                 showImage={false}
@@ -67,7 +67,7 @@ const About = async () => {
             ) : (
 
               <TextBlock.Section
-                key={block.order}
+                key={index}
                 className={
                   'mx-auto my-16 max-w-[1440px] px-6 md:my-32 md:px-16'
                 }
