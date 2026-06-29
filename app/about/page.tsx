@@ -49,11 +49,11 @@ const About = async () => {
       </PageTitle>
       <section className="section-contain mt-20 " >
         {sortedAboutPageTextSections &&
-          sortedAboutPageTextSections.map(block => (
+          sortedAboutPageTextSections.map((block, index) => (
 
             (block.centerTextsection ? (
               <CenterTextBlock
-                key={block.order}
+                key={index}
                 className='my-8 lg:my-10'
                 block={sortedAboutPageTextSections[0]}
                 showImage={false}
@@ -67,7 +67,7 @@ const About = async () => {
             ) : (
 
               <TextBlock.Section
-                key={block.order}
+                key={index}
                 className={
                   'mx-auto my-16 max-w-[1440px] px-6 md:my-32 md:px-16'
                 }
