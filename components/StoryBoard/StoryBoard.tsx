@@ -7,8 +7,9 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
-import { richTextOptions } from '../RichTextOptions/RichTextOptions'
+import { richTextOptions } from '@/components/RichTextOptions/RichTextOptions'
 import { StoryBoardProps } from './StoryBoard.types'
+import Divider from '@/components/Divider/Divider'
 
 // StoryBoard component displays a section with a title, subtitle, and rich text content
 // It also includes an image that is displayed alongside the text content
@@ -24,6 +25,7 @@ const StoryBoard: React.FC<StoryBoardProps> = ({ textsections }) => {
           <h2 className={`${styles.sectionHeadText}`}>
             {textsections.sectionSubText}
           </h2>
+          <Divider variant='primary' />
         </motion.div>
 
         <motion.hgroup
@@ -35,7 +37,7 @@ const StoryBoard: React.FC<StoryBoardProps> = ({ textsections }) => {
             locale: 'sv-SE',
           })}
         >
-          {documentToReactComponents(textsections.text, richTextOptions)}
+          {documentToReactComponents(textsections.sectionText, richTextOptions)}
         </motion.hgroup>
       </div>
       <motion.div
@@ -43,13 +45,13 @@ const StoryBoard: React.FC<StoryBoardProps> = ({ textsections }) => {
         className='flex justify-center'
       >
         <Image
-          src={textsections.image?.url || ''}
-          alt={textsections.image?.description || 'Story Image'}
+          src={textsections.sectionImage?.url || ''}
+          alt={textsections.sectionImage?.description || 'Story Image'}
           width={3120}
           height={1760}
           className='rounded-lg object-contain'
           {...ContentfulLivePreview.getProps({
-            assetId: textsections?.image?.sys?.id ?? '',
+            assetId: textsections?.sectionImage?.sys?.id ?? '',
             fieldId: 'asset',
             locale: 'sv-SE',
           })}
