@@ -50,8 +50,7 @@ const LandingpageHeroSection = ({ hero }: LandingpageHeroSectionProps) => {
         <TileGrid />
       </Canvas>
 
-      {/* HTML CONTENT CONTAINER USING YOUR SLIDEIN FUNCTION */}
-      {/* Added initial="hidden" and animate="show" so Framer Motion honors the delay */}
+
       <motion.div
         className="absolute inset-0 z-20 flex justify-center items-center px-4 pointer-events-none"
         variants={slideIn('down', 'tween', 3.5, 1.2)} // 3.5 seconds delay passed dynamically here
