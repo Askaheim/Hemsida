@@ -42,7 +42,7 @@ const About = async () => {
   const coworkerSection = (data?.coworkersCollection?.items ??
     []) as coworkerBlockProps[]
   return (
-    <main className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-stretch before:opacity-25">
+    <main className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">
       <Menu withBg={true} />
       <PageTitle variant='light' className='mt-12 md:mt-18 mx-4 md:mx-8'>
         Om oss
