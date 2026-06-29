@@ -1,11 +1,14 @@
 import { Document as RichTextDocument } from '@contentful/rich-text-types'
 
 export interface ContactDataProps {
-  sys?: ContentfulSys
+  sys?: {
+    id: string
+  }
   sectionTitle?: string
-  textSectionParagraf?: { json: RichTextDocument }
-  sectionBild?: ImageProps
+  sectionText?: { json: RichTextDocument }
+  sectionImage?: ImageProps
   order: number
+  centerTextsection?: boolean
 }
 
 export interface ContentfulSys {

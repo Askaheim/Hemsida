@@ -20,7 +20,7 @@ const title = cva('flex flex-col gap-1 break-words pt-20 pb-10 font-advisor', {
 const PageTitle = ({
   children,
   className,
-  variant = 'dark',
+  variant = 'light',
   ...props
 }: PageTitleProps) => {
   return (
