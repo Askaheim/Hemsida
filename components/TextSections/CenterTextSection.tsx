@@ -43,6 +43,7 @@ const CenterTextBlock: React.FC<TextBlockProps> & {
 } = ({ block, className, showImage = true, ...props }) => {
   return (
     <div
+      key={block.order}
       className={cn(
         'flex w-full flex-col items-center justify-center gap-8 pt-20 pb-12 md:gap-10 lg:gap-12',
         className,

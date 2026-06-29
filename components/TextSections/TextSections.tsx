@@ -43,6 +43,7 @@ const TextBlock: React.FC<TextBlockProps> & {
 } = ({ block, className, variant = 'dark', showImage = true, ...props }) => {
   return (
     <div
+      key={block.order}
       className={cn(
         'grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10 md:group-data-[reverse="true"]:[&>div]:odd:order-2 md:[&>div]:even:order-2 md:group-data-[reverse="true"]:[&>div]:even:order-1 md:[&>img]:even:order-1',
         { 'text-white': variant === 'light' },
@@ -80,7 +81,6 @@ const TextBlock: React.FC<TextBlockProps> & {
           alt='Bild för text blocket'
           width={1760}
           height={993}
-          quality={80}
           className='h-full rounded-lg object-cover object-center'
           {...ContentfulLivePreview.getProps({
             assetId: block?.sys?.id ?? '',

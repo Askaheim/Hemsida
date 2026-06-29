@@ -7,14 +7,15 @@ export interface storyTextSections {
   sys?: {
     id: string
   }
-  sectionSubText: string
   sectionHeadText: string
-  text: Document
-  image?: {
+  sectionSubText: string
+  sectionText: Document
+  sectionImage?: {
     sys: {
       id: string
     }
     url?: string
     description?: string
   }
+  centerTextsection?: boolean
 }
