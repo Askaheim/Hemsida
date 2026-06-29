@@ -29,3 +29,19 @@ export interface ExperienceProp {
   iconBg: string
   points: string[]
 }
+
+export type coworkerBlockProps = {
+  sys?: {
+    id?: string
+  }
+  workerName: string
+  workerTitle: string
+  workerProfileImage: {
+    url: string
+    description: string
+  }
+  workerText: {
+    json: RichTextDocument
+  }
+  order: number
+}

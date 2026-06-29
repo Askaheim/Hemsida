@@ -5,11 +5,11 @@ import { cn } from '@/utils/utils'
 import { cva } from 'class-variance-authority'
 import { PageTitleProps } from './PageTitle.types'
 
-const title = cva('flex flex-col gap-1 break-words pt-20 pb-10', {
+const title = cva('flex flex-col gap-1 break-words pt-20 pb-10 font-advisor', {
   variants: {
     variant: {
-      light: 'text-primaryTextDark',
-      dark: 'text-primaryText',
+      light: 'text-text-primary-light',
+      dark: 'text-text-primary-dark',
     },
   },
   defaultVariants: {
@@ -30,7 +30,7 @@ const PageTitle = ({
       {...props}
     >
       {children}
-      <Divider variant='gradient' />
+      <Divider variant='primary' />
     </Typography>
   )
 }
