@@ -5,9 +5,9 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-secondaryAccent text-white hover:bg-primaryAccent',
-        secondary: 'bg-transparent border-2 border-secondaryAccent text-secondaryAccent hover:bg-secondaryAccent hover:text-white',
-       
+        primary: 'bg-primary-accent text-white hover:bg-white hover:border-1 hover:border-primary-accent hover:text-primary-accent',
+        secondary: 'bg-transparent border-2 border-primary-accent text-primary-accent hover:bg-primary-accent hover:text-white',
+
       },
       size: {
         sm: 'px-4 py-2 text-sm font-medium',
