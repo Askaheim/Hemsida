@@ -59,7 +59,7 @@ const About = async () => {
                 showImage={false}
                 {...ContentfulLivePreview.getProps({
                   entryId:
-                    data?.frontPageTextSectionsCollection?.items[0]?.sys?.id,
+                    block?._id,
                   fieldId: 'paragraph',
                   locale: 'sv-SE',
                 })}

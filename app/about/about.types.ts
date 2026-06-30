@@ -31,6 +31,7 @@ export interface ExperienceProp {
 }
 
 export type coworkerBlockProps = {
+  _id?: string
   sys?: {
     id?: string
   }

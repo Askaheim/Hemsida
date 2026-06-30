@@ -7,6 +7,7 @@ export interface TextBlockSkeletonProps
 }
 
 export interface BlockProps {
+  _id: string
   sys?: ContentfulSys
   sectionTitle?: string
   sectionText?: { json: RichTextDocument }

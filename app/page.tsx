@@ -50,11 +50,11 @@ export default async function Home() {
                   <CenterTextBlock
                     key={block.order}
                     className='py-8 lg:py-10'
-                    block={sortedFrontPageTextSections[0]}
+                    block={block}
                     showImage={false}
                     {...ContentfulLivePreview.getProps({
                       entryId:
-                        data?.frontPageTextSectionsCollection?.items[0]?.sys?.id,
+                        block?._id,
                       fieldId: 'paragraph',
                       locale: 'sv-SE',
                     })}

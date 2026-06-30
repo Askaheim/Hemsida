@@ -31,6 +31,7 @@ const Contact = async () => {
   const contactData: ContactDataProps[] =
     data?.contactPageTextsectionsCollection?.items
   const mappedContactData = contactData?.map(section => ({
+    _id: section._id,
     sectionTitle: section.sectionTitle, // rename to what TextBlock expects
     sectionText: section.sectionText, // rename to what TextBlock expects
     sectionImage: section.sectionImage, // rename
@@ -53,7 +54,7 @@ const Contact = async () => {
                   block={section}
                   showImage={false}
                   {...ContentfulLivePreview.getProps({
-                    entryId: 'section.sys.id',
+                    entryId: 'section._id',
                     fieldId: 'paragraph',
                     locale: 'sv-SE',
                   })}
