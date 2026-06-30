@@ -26,7 +26,7 @@ const policy = async () => {
     <>
       <Menu />
       <main className='section-contain mt-20 min-h-screen max-w-[1024px]'>
-        <PageTitle>{policyContent[0].title}</PageTitle>
+        <PageTitle>{policyContent[0].policyTitle}</PageTitle>
         {policyContent && (
           <article
             {...ContentfulLivePreview.getProps({
@@ -37,7 +37,7 @@ const policy = async () => {
             className='my-16 px-4 md:my-32'
           >
             {documentToReactComponents(
-              policyContent[0].policy.json,
+              policyContent[0].policyText.json,
               richTextOptions,
             )}
           </article>
