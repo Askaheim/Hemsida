@@ -4,6 +4,7 @@ export const GET_ABOUT = gql`
   query GetData($preview: Boolean) {
   aboutpageTextSectionsCollection(limit: 5, preview: $preview) {
     items {
+    _id
       sys {
         id
       }
@@ -21,6 +22,7 @@ export const GET_ABOUT = gql`
   }
   coworkersCollection(limit: 3, preview: $preview) {
     items {
+    _id
       sys {
         id
       }

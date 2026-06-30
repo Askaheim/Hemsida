@@ -1,17 +1,18 @@
 import { gql } from '@apollo/client'
 
 export const GET_TOS_POLICY = gql`
-  query getPolicyData($preview: Boolean) {
-    termsOfServiceCollection(limit: 5, preview: $preview) {
-      items {
-        sys {
-          id
-        }
-        title
-        termsOfService {
-          json
-        }
+ query getPolicyData($preview: Boolean) {
+  termsOfServiceCollection(limit: 1, preview: $preview) {
+    items {
+    _id
+      sys {
+        id
+      }
+      policyTitle
+      policyText {
+        json
       }
     }
   }
+}
 `

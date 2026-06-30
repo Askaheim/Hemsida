@@ -1,6 +1,7 @@
 import { Document as RichTextDocument } from '@contentful/rich-text-types'
 
 export interface ContactDataProps {
+  _id: string
   sys?: {
     id: string
   }

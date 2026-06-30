@@ -1,11 +1,13 @@
 import { Document as RichTextDocument } from '@contentful/rich-text-types'
 
 export interface DataProps {
+  _id: string
   sys?: ContentfulSys
   sectionTitle?: string
   sectionText?: { json: RichTextDocument }
   sectionImage?: ImageProps
   order: number
+  centerTextsection?: boolean
 }
 
 export interface ContentfulSys {

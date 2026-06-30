@@ -10,16 +10,13 @@ export const richTextOptions = {
     [BLOCKS.PARAGRAPH]: (node: Node, children: ReactNode) => {
       const key = `paragraph-${keyCounter++}`
       return (
-        <Typography key={key} variant='p' className={'my-1'}>
+        <p key={key} className={'my-1 text-text-primary-light dark:text-text-primary-dark font-poppins'}>
           {children}
-        </Typography>
+        </p>
       )
     },
     [BLOCKS.HEADING_1]: (node: Node, children: ReactNode) => {
       const key = `heading-1-${keyCounter++}`
-      // Using a key to avoid React warning about unique keys in lists
-      // This is a workaround for the fact that Contentful does not provide unique keys for headings
-      // This is not ideal, but it works for now
       return (
         <Typography key={key} variant='h1' className={'my-4'}>
           {children}
@@ -28,9 +25,6 @@ export const richTextOptions = {
     },
     [BLOCKS.HEADING_2]: (node: Node, children: ReactNode) => {
       const key = `heading-2-${keyCounter++}`
-      // Using a key to avoid React warning about unique keys in lists
-      // This is a workaround for the fact that Contentful does not provide unique keys for headings
-      // This is not ideal, but it works for now
       return (
         <Typography key={key} variant='h2' className={'my-3'}>
           {children}
@@ -112,15 +106,18 @@ export const richTextOptions = {
       )
     },
     [BLOCKS.OL_LIST]: (node: Node, children: ReactNode) => {
+      const key = `ol-list-${keyCounter++}` // 💡 LADE TILL NYCKEL HÄR
       return (
-        <ol className='[&>li]:list-decimal marker:[&>li]:font-semibold'>
+        <ol key={key} className='[&>li]:list-decimal marker:[&>li]:font-semibold'>
           {children}
         </ol>
       )
     },
     [BLOCKS.QUOTE]: (node: Node, children: ReactNode) => {
+      const key = `quote-${keyCounter++}` // 💡 LADE TILL NYCKEL HÄR
       return (
         <Typography
+          key={key}
           variant='blockquote'
           className='border-l-4 border-gray-500 pl-4'
         >
@@ -129,18 +126,22 @@ export const richTextOptions = {
       )
     },
     [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
+      const key = `asset-${keyCounter++}` // 💡 LADE TILL NYCKEL HÄR
       return (
         <Image
+          key={key}
           src={node.data.target.fields.file.url}
           alt={node.data.target.fields.title}
         />
       )
     },
     [BLOCKS.EMBEDDED_ENTRY]: (node: Node) => {
-      return <div>{node.data.target.fields.title}</div>
+      const key = `entry-${keyCounter++}` // 💡 LADE TILL NYCKEL HÄR
+      return <div key={key}>{node.data.target.fields.title}</div>
     },
     [BLOCKS.HR]: () => {
-      return <hr className='my-4' />
+      const key = `hr-${keyCounter++}` // 💡 LADE TILL NYCKEL HÄR
+      return <hr key={key} className='my-4' />
     },
     [BLOCKS.TABLE]: (node: Node, children: ReactNode) => {
       const key = `table-${keyCounter++}`

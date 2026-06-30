@@ -25,18 +25,18 @@ const tos = async () => {
     <>
       <Menu />
       <main className='section-contain mt-20 min-h-screen max-w-[1024px]'>
-        <PageTitle>{tosContent[0].title}</PageTitle>
+        <PageTitle>{tosContent[0].policyTitle}</PageTitle>
         {tosContent && (
           <article
             {...ContentfulLivePreview.getProps({
-              entryId: tosContent?.sys?.id,
+              entryId: tosContent?._id,
               fieldId: 'policy',
               locale: 'en-US',
             })}
             className='my-16 px-4 md:my-32'
           >
             {documentToReactComponents(
-              tosContent[0].termsOfService.json,
+              tosContent[0].policyText.json,
               richTextOptions,
             )}
           </article>
