@@ -80,6 +80,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
           </div>
         </>
       )}
+
     </div>
   );
 };

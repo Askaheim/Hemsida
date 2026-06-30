@@ -19,6 +19,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import JobDetails from '@/components/Jobs/JobDetails'
 import ImageCarousel from '@/components/Carousel/Carousel'
 import { JobProps } from './features.types'
+import { richTextOptions } from '@/components/RichTextOptions/RichTextOptions'
 
 
 export const metadata: Metadata = {
@@ -53,11 +54,11 @@ const Features = async () => {
   const jobs = data?.oldJobsCollection?.items
 
   return (
-    <>
-      <Menu withBg={false} />
-      <main className='mx-auto mt-20 max-w-[1440px] px-6'>
+    <main className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">
+      <Menu withBg={true} />
+      <section className="mx-auto mt-20 md:py-12 px-6 md:px-12 ">
         <PageTitle>Våra tjänster</PageTitle>
-        <div className='flex flex-col py-6 md:py-12'>
+        <div className='flex flex-col py-6 '>
           {mappedFeaturesData &&
             mappedFeaturesData.map(block => (
               block.centerTextsection === true ? (
@@ -91,12 +92,12 @@ const Features = async () => {
           <Divider variant="primary" />
 
           <div className='mt-6 md:mt-10 flex flex-col gap-16'>
-            {jobs.map((job: JobProps) => {
+            {jobs.map((job: JobProps, idx: number) => {
 
               const carouselImages = job.jobImagesCollection?.items || [];
 
               return (
-                <div key={job._id} className="w-full flex flex-col gap-8 border-b border-gray-100 pb-12 last:border-0">
+                <div key={idx} className="w-full flex flex-col gap-8 border-b border-gray-100 pb-12 last:border-0">
 
                   {/* ÖVRE DEL: Grid med 2 kolumner på dator (Bild vä, Text hö) */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -115,14 +116,23 @@ const Features = async () => {
 
                   {/* NEDRE DEL: Client Quote (Full bredd, ligger utanför griddet) */}
 
-
+                  {job.clientQuote?.json && (
+                    <div className="w-full bg-gray-50/70 p-6 md:p-8 rounded-2xl border-l-4 border-primary-accent mt-4">
+                      <span className="block text-xs font-bold uppercase tracking-wider text-primary-accent mb-2">
+                        Klientens omdöme
+                      </span>
+                      <blockquote className="text-gray-700 italic font-medium md:text-lg leading-relaxed">
+                        "{documentToReactComponents(job.clientQuote.json, richTextOptions)}"
+                      </blockquote>
+                    </div>
+                  )}
                 </div>
               );
             })}
           </div>
         </div>
-      </main>
-    </>
+      </section>
+    </main>
   )
 }
 export default Features
