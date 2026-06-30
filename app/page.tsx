@@ -49,7 +49,7 @@ export default async function Home() {
                 (block.centerTextsection ? (
                   <CenterTextBlock
                     key={block.order}
-                    className='my-8 lg:my-10'
+                    className='py-8 lg:py-10'
                     block={sortedFrontPageTextSections[0]}
                     showImage={false}
                     {...ContentfulLivePreview.getProps({
@@ -64,7 +64,7 @@ export default async function Home() {
                   <TextBlock.Section
                     key={block.order}
                     className={
-                      'mx-auto my-16 max-w-[1440px] px-6 md:my-32 md:px-16'
+                      'mx-auto py-16 max-w-[1440px] px-6 md:py-32 md:px-16'
                     }
                     reverse={block.order % 2 === 0 ? true : false}
                   >
