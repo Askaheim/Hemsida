@@ -29,7 +29,7 @@ const tos = async () => {
         {tosContent && (
           <article
             {...ContentfulLivePreview.getProps({
-              entryId: tosContent?.sys?.id,
+              entryId: tosContent?._id,
               fieldId: 'policy',
               locale: 'en-US',
             })}
