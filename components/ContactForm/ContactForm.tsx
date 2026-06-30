@@ -19,6 +19,11 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
   const formRef = useRef<HTMLFormElement | null>(null) // Typing the formRef as HTMLFormElement
   const [loading, setLoading] = useState<boolean>(false)
 
+  // EMAILJS KEYS
+  const serviceID = process.env.NEXT_EMAILJS_SERVICE_ID
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+  const templateId = process.env.NEXT_EMAILJS_TEMPLATE_ID
+
   // ChangeEvent type for input elements
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -34,8 +39,8 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
 
     emailjs
       .send(
-        'service_iyvsum5',
-        'template_g6rvddl',
+        serviceID ?? '',
+        templateId ?? '',
         {
           from_name: form.from,
           to_name: formData.receiverName,
@@ -43,7 +48,7 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
           to_email: formData.receiverEmail,
           message: form.message,
         },
-        'rw10AKJ01-JXkX7AO',
+        publicKey ?? '',
       )
       .then(
         () => {
