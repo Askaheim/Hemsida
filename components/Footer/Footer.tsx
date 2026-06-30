@@ -14,6 +14,7 @@ import Link from 'next/link'
 import pageLinks from '@/lib/pageLinks'
 import { MenuContext } from '@/context/MenuProvider'
 import { useContext } from 'react'
+import FooterClient from './FooterClient'
 
 
 
@@ -54,6 +55,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
   if (!context) {
     throw new Error('Menu must be used within a MenuContextProvider')
   }
+
 
   const footerData = {
     sections: [
@@ -182,7 +184,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
           </Section>
 
         </div>
-        <div className='flex items-center justify-center py-4'>
+        <FooterClient>
           {/* Footer logo */}
           {variant === 'dark' ? (
             <Image
@@ -201,7 +203,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
               className='w-48 h-auto md:w-64 lg:w-80 transition-all'
             />
           )}
-        </div>
+        </FooterClient>
       </div>
       <div className='w-full '>
         <div className='w-full flex justify-end'>
