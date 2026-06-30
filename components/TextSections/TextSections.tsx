@@ -54,7 +54,7 @@ const TextBlock: React.FC<TextBlockProps> & {
       <div className='flex flex-col gap-6'>
         <Typography
           {...ContentfulLivePreview.getProps({
-            assetId: block?.sys?.id ?? '',
+            assetId: block?._id ?? '',
             fieldId: 'logos',
             locale: 'en-US',
           })}
@@ -65,7 +65,7 @@ const TextBlock: React.FC<TextBlockProps> & {
         </Typography>
         <article
           {...ContentfulLivePreview.getProps({
-            entryId: block?.sys?.id ?? '',
+            entryId: block?._id ?? '',
             fieldId: 'logos',
             locale: 'en-US',
           })}

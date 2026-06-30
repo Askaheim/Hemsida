@@ -6,3 +6,21 @@ export interface CenterDataProps {
   text: { json: RichTextDocument }
   image: ImageProps
 }
+
+export type JobProps = {
+  _id: string
+  jobTitle: string
+  jobDescription: {
+    json: RichTextDocument
+  }
+  jobImagesCollection: {
+    items: {
+      url: string
+      description: string
+
+    }[]
+  }
+  clientQuote: {
+    json: RichTextDocument
+  }
+}

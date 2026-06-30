@@ -1,5 +1,4 @@
 import Button from '@/components/Button/Button'
-import CardSlider from '@/components/CardSlider/CardSlider'
 import Menu from '@/components/Navbar/Menu'
 import PageTitle from '@/components/PageTitle/PageTitle'
 import CenterTextBlock from '@/components/TextSections/CenterTextSection'
@@ -8,13 +7,22 @@ import TextBlock from '@/components/TextSections/TextSections'
 import apolloClient from '@/lib/apolloClient'
 import previewClient from '@/lib/previewClient'
 import { GET_FEATURES } from '@/queries'
-import { CardSliderData, DataProps } from '@/utils/globalTypes'
+import { DataProps } from '@/utils/globalTypes'
 import { ContentfulLivePreview } from '@contentful/live-preview'
+import Divider from '@/components/Divider/Divider'
+import Typography from '@mui/material/Typography'
+import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import JobDetails from '@/components/Jobs/JobDetails'
+import ImageCarousel from '@/components/Carousel/Carousel'
+import { JobProps } from './features.types'
+import { richTextOptions } from '@/components/RichTextOptions/RichTextOptions'
 
-export const metadata = {
+
+export const metadata: Metadata = {
   title: 'Features',
   description: `Våra tjänster och erbjudanden`,
 }
@@ -30,101 +38,101 @@ const Features = async () => {
     },
   })
 
-  const featuresData: DataProps[] = data?.featureTextSectionsCollection?.items
+  const featuresData: DataProps[] = data?.servicepageTextsectionsCollection?.items
   const mappedFeaturesData: BlockProps[] = featuresData
     ?.map(section => ({
+      _id: section._id,
       sectionTitle: section.sectionTitle,
       sectionText: section.sectionText,
       sectionImage: section.sectionImage,
       order: section.order, // keep the order for layout purposes
       sys: section.sys, // keep sys for Contentful Live Preview
+      centerTextsection: section.centerTextsection
     }))
     ?.sort((a, b) => a.order - b.order)
 
-  const centreTextData = data?.featureCentreTextCollection?.items || []
-  const centreTextMapped: BlockProps = {
-    sectionTitle: centreTextData[0].title,
-    sectionText: centreTextData[0].textSection,
-    sys: centreTextData[0].sys, // keep sys for Contentful Live Preview
-    order: 0, // default order for center text
-  }
-
-  const queryCardData: CardSliderData[] =
-    data?.featureCardsCollection?.items || []
-  const cardData = queryCardData
-    .map(card => ({
-      cardTitle: card.cardTitle,
-      cardText: card.cardText,
-      nameOfIcon: card.nameOfIcon,
-      order: card.order,
-      sys: card.sys, // keep sys for Contentful Live Preview
-      price: card.price,
-      nameOfIconColor: card.nameOfIconColor,
-    }))
-    .sort((a, b) => a.order - b.order)
+  const jobs = data?.oldJobsCollection?.items
 
   return (
-    <>
-      <Menu withBg={false} />
-      <main className='mx-auto mt-20 max-w-[1440px] px-6'>
+    <main className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">
+      <Menu withBg={true} />
+      <section className="mx-auto mt-20 md:py-12 px-6 md:px-12 ">
         <PageTitle>Våra tjänster</PageTitle>
-        <div className='flex flex-col py-6 md:py-12'>
+        <div className='flex flex-col py-6 '>
           {mappedFeaturesData &&
             mappedFeaturesData.map(block => (
-              <TextBlock.Section
-                key={block.sys?.id ?? block.order}
-                className={'my-12'}
-                reverse={block.order % 2 === 0 ? true : false}
-              >
-                <TextBlock block={block} showImage={true} />
-              </TextBlock.Section>
+              block.centerTextsection === true ? (
+                <CenterTextBlock
+                  key={block.sys?.id ?? block.order}
+                  className='py-8 lg:py-10'
+                  block={block}
+                  showImage={false}
+                  {...ContentfulLivePreview.getProps({
+                    entryId: block?._id,
+                    fieldId: 'paragraph',
+                    locale: 'sv-SE',
+                  })}
+                />
+              ) : (
+                <TextBlock.Section
+                  key={block.sys?.id ?? block.order}
+                  className={'my-12'}
+                  reverse={block.order % 2 === 0 ? true : false}
+                >
+                  <TextBlock block={block} showImage={true} />
+                </TextBlock.Section>
+              )
             ))}
         </div>
-      </main>
-      <div className='bg-primaryBg relative mb-10 flex flex-col py-18 md:mb-20 md:py-24 lg:py-32'>
-        <div className='absolute top-0 z-10 w-full overflow-hidden'>
-          <Image
-            src='/images/wave.png'
-            alt='Background Image'
-            width={1400}
-            height={100}
-            className='z-99 w-full translate-y-[-10px] rotate-180'
-            priority
-          />
+
+        <div className=''>
+          <Typography variant='h2' className='font-advisor font-extrabold' >
+            Tidigare arbeten
+          </Typography>
+          <Divider variant="primary" />
+
+          <div className='mt-6 md:mt-10 flex flex-col gap-16'>
+            {jobs.map((job: JobProps, idx: number) => {
+
+              const carouselImages = job.jobImagesCollection?.items || [];
+
+              return (
+                <div key={idx} className="w-full flex flex-col gap-8 border-b border-gray-100 pb-12 last:border-0">
+
+                  {/* ÖVRE DEL: Grid med 2 kolumner på dator (Bild vä, Text hö) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+
+                    {/* VÄNSTER: Karusellen (Kvadrat) */}
+                    <div className="w-full">
+                      <ImageCarousel images={carouselImages} />
+                    </div>
+
+                    {/* HÖGER: Text, rubrik, beskrivning */}
+                    <div className="w-full">
+                      <JobDetails title={job.jobTitle} description={job.jobDescription} />
+                    </div>
+
+                  </div>
+
+                  {/* NEDRE DEL: Client Quote (Full bredd, ligger utanför griddet) */}
+
+                  {job.clientQuote?.json && (
+                    <div className="w-full bg-gray-50/70 p-6 md:p-8 rounded-2xl border-l-4 border-primary-accent mt-4">
+                      <span className="block text-xs font-bold uppercase tracking-wider text-primary-accent mb-2">
+                        Klientens omdöme
+                      </span>
+                      <blockquote className="text-gray-700 italic font-medium md:text-lg leading-relaxed">
+                        "{documentToReactComponents(job.clientQuote.json, richTextOptions)}"
+                      </blockquote>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
-        {centreTextMapped && (
-          <>
-            <CenterTextBlock
-              className='my-8 px-10 md:px-20'
-              block={centreTextMapped}
-              showImage={false}
-              {...ContentfulLivePreview.getProps({
-                entryId:
-                  data?.frontPageTextSectionsCollection?.items[0]?.sys?.id,
-                fieldId: 'paragraph',
-                locale: 'sv-SE',
-              })}
-            />
-            <div className='flex items-center justify-center'>
-              <Button variant='primary' size='sm' className='rounded-lg'>
-                <Link href='/contact'>Boka nu</Link>
-              </Button>
-            </div>
-          </>
-        )}
-        {cardData && <CardSlider cardData={cardData} />}
-        <div className='absolute bottom-0 z-10 w-full overflow-hidden'>
-          <Image
-            src='/images/wave.png'
-            alt='Background Image'
-            width={1400}
-            height={100}
-            className='z-99 w-full'
-            priority
-          />
-        </div>
-      </div>
-    </>
+      </section>
+    </main>
   )
 }
 export default Features

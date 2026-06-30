@@ -4,6 +4,7 @@ export const GET_CONTACT_DATA = gql`
  query getContactData($preview: Boolean) {
     contactPageTextsectionsCollection(limit: 1, preview: $preview) {
       items {
+      _id
         sys {
           id
         }
