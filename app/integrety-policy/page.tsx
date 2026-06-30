@@ -8,6 +8,7 @@ import { ContentfulLivePreview } from '@contentful/live-preview'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { draftMode } from 'next/headers'
 
+
 const policy = async () => {
   const { isEnabled } = await draftMode()
   const client = isEnabled ? previewClient : apolloClient
