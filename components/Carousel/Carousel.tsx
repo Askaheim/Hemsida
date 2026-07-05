@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
+
 
 interface CarouselImage {
   url: string;
@@ -37,10 +39,11 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   return (
     <div className="relative aspect-square w-full max-w-md mx-auto overflow-hidden rounded-2xl border border-gray-100 shadow-sm bg-white">
 
-      <img
+      <Image
         src={currentImage.url}
         alt={currentImage.description || `Image ${currentIndex + 1}`}
         className="w-full h-full object-cover transition-opacity duration-300"
+        fill
       />
 
       {totalImages > 1 && (

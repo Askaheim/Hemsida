@@ -12,13 +12,15 @@ const ContentBox = ({
     heroImage,
     variant = 'light'
 }: ContentBoxProps) => {
+
+    const title = heroTitle || "Välkommen till Askaheim";
     return (
         /* Removed absolute inset-0 from here so it doesn't conflict with Framer Motion layout boundaries */
         <div className="max-w-2xl w-full p-8 md:p-12 bg-[#493a3a]/60 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl">
 
             <div className="flex justify-center">
                 {heroImage ? (
-                    <Image src={heroImage.url} alt="Askaheim logotype" width={300} height={300} />
+                    <Image src={heroImage.url} alt={title ?? "Askaheim logotype"} width={300} height={300} />
                 ) : (
                     variant === 'dark' ? (
                         <Image src="/logotypes/logotype_BIG_TEXT_WHITE.png" alt="White Logo" width={300} height={300} />

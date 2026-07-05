@@ -1,3 +1,6 @@
+import * as THREE from 'three'
+import { BufferGeometry, BufferGeometryEventMap, Material, MaterialEventMap, NormalBufferAttributes } from 'three';
+
 export interface LandingpageHeroSectionProps {
     hero: {
         heroTitle?: string;
@@ -25,6 +28,6 @@ export interface TileProps {
     delay: number;
     gridOffsetX: number;
     gridOffsetY: number;
-    materials: any;
-    geometry: any;
+    materials: Material<MaterialEventMap> | Material<MaterialEventMap>[];
+    geometry: BufferGeometry<NormalBufferAttributes, BufferGeometryEventMap>
 }

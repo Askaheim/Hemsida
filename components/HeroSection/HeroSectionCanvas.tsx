@@ -1,10 +1,10 @@
 'use client'
-import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
+import type { ComponentType } from "react";
 import TileGrid from "@/components/LandingpageHeroSection/TileGrid";
 
 const HerosectionCanvas = ({ setShowContent }: { setShowContent: (show: boolean) => void }) => {
-
+  const TileGridWithProps = TileGrid as ComponentType<{ onGridSettled: () => void }>;
 
   return (
     <>
@@ -17,7 +17,7 @@ const HerosectionCanvas = ({ setShowContent }: { setShowContent: (show: boolean)
         <ambientLight intensity={0.7} />
         <directionalLight position={[-4, 8, 6]} intensity={1.4} />
         <pointLight position={[0, -6, 4]} intensity={0.3} color="#f0ede8" />
-        <TileGrid onGridSettled={() => setShowContent(true)} />
+        <TileGridWithProps onGridSettled={() => setShowContent(true)} />
       </Canvas>
     </>
   )

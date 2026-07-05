@@ -1,10 +1,28 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import LandingpageHeroSection from './LandingpageHeroSection'
 
-export default function HeroWrapper({ heroData }: { heroData: any }) {
+type HeroDataProps = {
+    heroTitle: string
+    heroText: {
+        json: {
+            content: Array<{
+                content: Array<{
+                    value: string
+                }>
+            }>
+        }
+    }
+    heroCtaPrimary: string
+    heroCtaSecondary: string
+    heroImage: {
+        url: string
+    }
+}
+
+export default function HeroWrapper({ heroData }: { heroData: HeroDataProps }) {
     const waveRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {

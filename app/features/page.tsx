@@ -1,4 +1,3 @@
-import Button from '@/components/Button/Button'
 import Menu from '@/components/Navbar/Menu'
 import PageTitle from '@/components/PageTitle/PageTitle'
 import CenterTextBlock from '@/components/TextSections/CenterTextSection'
@@ -13,8 +12,6 @@ import Divider from '@/components/Divider/Divider'
 import Typography from '@mui/material/Typography'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
-import Image from 'next/image'
-import Link from 'next/link'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import JobDetails from '@/components/Jobs/JobDetails'
 import ImageCarousel from '@/components/Carousel/Carousel'
@@ -99,22 +96,18 @@ const Features = async () => {
               return (
                 <div key={idx} className="w-full flex flex-col gap-8 border-b border-gray-100 pb-12 last:border-0">
 
-                  {/* ÖVRE DEL: Grid med 2 kolumner på dator (Bild vä, Text hö) */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
 
-                    {/* VÄNSTER: Karusellen (Kvadrat) */}
                     <div className="w-full">
                       <ImageCarousel images={carouselImages} />
                     </div>
 
-                    {/* HÖGER: Text, rubrik, beskrivning */}
                     <div className="w-full">
                       <JobDetails title={job.jobTitle} description={job.jobDescription} />
                     </div>
 
                   </div>
 
-                  {/* NEDRE DEL: Client Quote (Full bredd, ligger utanför griddet) */}
 
                   {job.clientQuote?.json && (
                     <div className="w-full bg-gray-50/70 p-6 md:p-8 rounded-2xl border-l-4 border-primary-accent mt-4">
@@ -122,7 +115,7 @@ const Features = async () => {
                         Klientens omdöme
                       </span>
                       <blockquote className="text-gray-700 italic font-medium md:text-lg leading-relaxed">
-                        "{documentToReactComponents(job.clientQuote.json, richTextOptions)}"
+                        &quot;{documentToReactComponents(job.clientQuote.json, richTextOptions)}&quot;
                       </blockquote>
                     </div>
                   )}

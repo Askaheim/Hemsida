@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import TileGrid from "./TileGrid";
 import { LandingpageHeroSectionProps } from "./LandingpageHeroSection.types";
 import ContentBox from "../ContentBox/ContentBox";
-import { motion, Variants } from 'framer-motion';
+import { AnimationGeneratorType, motion, Variants } from 'framer-motion';
 
 const LandingpageHeroSection = ({ hero }: LandingpageHeroSectionProps) => {
   const { heroTitle, heroText, heroImage, heroCtaPrimary, heroCtaSecondary } = hero;
@@ -12,7 +12,7 @@ const LandingpageHeroSection = ({ hero }: LandingpageHeroSectionProps) => {
   // slideIn function with delay built-in
   const slideIn = (
     direction: string,
-    type: string,
+    type: AnimationGeneratorType | undefined,
     delay: number,
     duration: number
   ): Variants => ({
