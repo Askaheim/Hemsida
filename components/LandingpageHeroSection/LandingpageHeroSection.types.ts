@@ -1,4 +1,3 @@
-import * as THREE from 'three'
 import { BufferGeometry, BufferGeometryEventMap, Material, MaterialEventMap, NormalBufferAttributes } from 'three';
 
 export interface LandingpageHeroSectionProps {

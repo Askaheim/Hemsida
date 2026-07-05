@@ -1,4 +1,3 @@
-import { profile } from 'console'
 import { revalidatePath, revalidateTag } from 'next/cache'
 import { NextResponse } from 'next/server'
 
