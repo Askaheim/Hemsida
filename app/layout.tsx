@@ -51,9 +51,6 @@ const poppins = Poppins({
 })
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { isEnabled } = await draftMode()
-  const client = isEnabled ? previewClient : apolloClient
-
 
   const metadataBase =
     process.env.NEXT_LOCAL_BASE_URL ||
@@ -68,8 +65,19 @@ export async function generateMetadata(): Promise<Metadata> {
       default: 'Askaheim Kakelugnsmakeri',
     },
     description: `Created by Alexander&son for ${metaCustomer}`,
-    icons: {
-      icon: '/favicon.ico',
+     icons: {
+       icon: [
+      {
+        url: "/favicon-light.svg",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon-dark.svg",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+   apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
     },
     keywords: [
       'kakelugnsmakeri',

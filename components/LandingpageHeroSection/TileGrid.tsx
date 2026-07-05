@@ -1,12 +1,19 @@
 import { useMemo, useState, useEffect } from "react";
 import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import { CELL, TILE_W, TILE_H, STAGGER, createTileMaterials, useTileGeometry } from "./LandingpageHeroSection.utils";
+import { CELL, TILE_W, TILE_H, STAGGER, createTileMaterials, tileGeometry } from "./LandingpageHeroSection.utils";
 import Tile from "./Tile";
+
+type LoadedTextures = {
+    color: THREE.Texture;
+    normal: THREE.Texture;
+}
+
+
 
 const TileGrid = () => {
     const { viewport } = useThree();
-    const [loadedTextures, setLoadedTextures] = useState<any>(null);
+    const [loadedTextures, setLoadedTextures] = useState<LoadedTextures | null>(null);
 
     // 1. Preload all textures BEFORE mounting the grid components
     useEffect(() => {
@@ -54,16 +61,19 @@ const TileGrid = () => {
         return list;
     }, [cols, rows]);
 
-    // 2. Gatekeeper: If textures are downloading, render nothing. Prevents middle-of-fall re-renders.
-    if (!loadedTextures) return null;
 
-    // 3. Create materials synchronously now that textures are safely cached in memory
-    const materials = createTileMaterials(loadedTextures);
-    const geometry = useTileGeometry();
+    // const materials = createTileMaterials(loadedTextures);
+    const materials = useMemo(() => {
+        if (!loadedTextures) return null;
+        return createTileMaterials(loadedTextures);
+    }, [loadedTextures]);
+    const geometry = tileGeometry;
+
+    const ready = !!loadedTextures && !!materials;
 
     return (
         <>
-            {tiles.map(({ col, row, delay, key }) => (
+            {ready ? (tiles.map(({ col, row, delay, key }) => (
                 <Tile
                     key={key}
                     col={col}
@@ -74,7 +84,7 @@ const TileGrid = () => {
                     materials={materials}
                     geometry={geometry}
                 />
-            ))}
+            ))) : null}
         </>
     );
 };

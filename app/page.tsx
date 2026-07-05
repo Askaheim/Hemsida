@@ -1,4 +1,3 @@
-import LandingpageHeroSection from '@/components/LandingpageHeroSection/LandingpageHeroSection'
 import Menu from '@/components/Navbar/Menu'
 import { BlockProps } from '@/components/TextSections/TextSection.types'
 import apolloClient from '@/lib/apolloClient'
@@ -37,7 +36,6 @@ export default async function Home() {
     <>
       <Menu withBg={true} />
       <main className="light:bg-primaryBgLight dark:bg-primaryBgDark">
-        {/* <LandingpageHeroSection {...({ hero: heroData } as any)} /> */}
         <HeroWrapper heroData={heroData} />
 
         <section className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">

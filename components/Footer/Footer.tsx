@@ -6,8 +6,6 @@ import {
   SectionProps,
   SectionTitleProps,
   SocialMediaSectionProps,
-  TextSection,
-  FooterLogoData
 } from './Footer.types'
 import Image from 'next/image'
 import Link from 'next/link'

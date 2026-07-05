@@ -1,11 +1,12 @@
 import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Document } from '@contentful/rich-text-types';
 import Typography from '../Typography/Typography';
 import { richTextOptions } from '../RichTextOptions/RichTextOptions'
 
 
 interface RichTextJson {
-    json: any;
+    json: Document;
 }
 
 interface JobDetailsProps {

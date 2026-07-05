@@ -36,6 +36,15 @@ export const createTileMaterials = (textures: { color: THREE.Texture; normal?: T
     return [edge, edge, edge, edge, face, face];
 };
 
-export const useTileGeometry = () => {
+/* export const TileGeometry = () => {
     return new THREE.BoxGeometry(TILE_W, TILE_H, TILE_DEPTH, 1, 1, 1);
-};
+}; */
+
+export const tileGeometry = new THREE.BoxGeometry(
+    TILE_W,
+    TILE_H,
+    TILE_DEPTH,
+    1,
+    1,
+    1
+);
