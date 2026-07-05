@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion'
+import { AnimationGeneratorType, Variants } from 'framer-motion'
 
 export interface Variant {
   hidden: {
@@ -43,7 +43,7 @@ export const textVariant = (delay: number): Variants => {
 
 export const fadeIn = (
   direction: 'left' | 'right' | 'up' | 'down' | '',
-  type: string,
+  type: AnimationGeneratorType | undefined,
   delay: number,
   duration: number,
 ): Variants => {

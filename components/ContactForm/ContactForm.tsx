@@ -22,7 +22,7 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
   // EMAILJS KEYS
   const serviceID = process.env.NEXT_EMAILJS_SERVICE_ID
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-  const templateId = process.env.NEXT_EMAILJS_TEMPLATE_ID
+  const templateId = ''
 
   // ChangeEvent type for input elements
   const handleChange = (
@@ -131,10 +131,10 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
             />
           </label>
           <Button
-            variant='primary'
+            variant='clear'
             size='md'
             type='submit'
-            className='shadow-primary bg-primary-accent hover:text-primary-accent border-2 border-white  w-fit rounded-xl px-8 py-3 font-bold text-white shadow-md outline-none hover:bg-white hover:shadow-lg'
+            className=' bg-primary-accent border-2 border-white w-fit rounded-xl px-8 py-3 font-bold text-white shadow-md outline-none hover:bg-white hover:text-primary-accent hover:border-primary-accent hover:border-2 focus:outline-none focus:ring-2 focus:ring-primary-accent focus:ring-offset-2 transition-colors duration-300 ease-in-out'
           >
             {loading ? 'Skickar...' : 'Skicka Meddelande'}
           </Button>

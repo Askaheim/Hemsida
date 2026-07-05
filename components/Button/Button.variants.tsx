@@ -7,6 +7,7 @@ export const buttonVariants = cva(
       variant: {
         primary: 'bg-primary-accent text-white hover:bg-white hover:border-1 hover:border-primary-accent hover:text-primary-accent',
         secondary: 'bg-transparent border-2 border-primary-accent text-primary-accent hover:bg-primary-accent hover:text-white',
+        clear: '',
 
       },
       size: {
