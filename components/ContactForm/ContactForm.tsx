@@ -2,7 +2,7 @@
 
 import { styles } from '@/utils/styles'
 import { cn } from '@/utils/utils'
-import emailjs from '@emailjs/browser'
+// import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
 import { ChangeEvent, FormEvent, useRef, useState } from 'react'
 import Button from '../Button/Button'
@@ -20,9 +20,9 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
   const [loading, setLoading] = useState<boolean>(false)
 
   // EMAILJS KEYS
-  const serviceID = process.env.NEXT_EMAILJS_SERVICE_ID
+  /* const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-  const templateId = ''
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID */
 
   // ChangeEvent type for input elements
   const handleChange = (
@@ -33,7 +33,7 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
   }
 
   // FormEvent type for the form submit handler
-  const handleSubmit = (e: FormEvent) => {
+  /* const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
 
@@ -63,6 +63,43 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
           alert('An error occurred. Please try again later.')
         },
       )
+  } */
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setLoading(true)
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: form.from,
+          email: form.email,
+          message: form.message,
+          receiverName: formData.receiverName,
+          receiverEmail: formData.receiverEmail,
+        }),
+      })
+
+      const data = await res.json()
+
+      if (res.ok && data.success) {
+        // NU är det en riktig succé!
+        alert(`${formData.feedback}`)
+        setForm({ from: '', email: '', message: '' })
+      } else {
+        // Om servern svarade med t.ex. status 400 eller 500
+        console.error('Servern returnerade ett fel:', data.error)
+        alert('Kunde inte skicka meddelandet. Försök igen senare.')
+      }
+    } catch (error) {
+      // Om det blev nätverksfel eller liknande
+      console.error('Nätverksfel:', error)
+      alert('Ett oväntat fel uppstod.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -127,7 +164,7 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
               value={form.message}
               onChange={handleChange}
               placeholder='Vad vill du säga? Skriv ditt meddelande här'
-              className='bg-primaryBgLight placeholder:text-primary-300 text-text-primary-dark rounded-lg border-none px-6 py-4 font-medium outline-none'
+              className='bg-primaryBgLight placeholder:text-primary-300 text-text-primary-light rounded-lg border-none px-6 py-4 font-medium outline-none'
             />
           </label>
           <Button

@@ -1,20 +1,25 @@
+'use client'
+
 import { cn } from '@/utils/utils'
-import React from 'react'
 import type { DividerProps } from './Divider.types'
 import { dividerVariants } from './Divider.variants'
+import { useTheme } from '@/context/ThemeContext'
 
-
-const Divider = ({  
+const Divider = ({
   className,
-  variant = 'primary', // Default variant
+  variant,
   ...props
 }: DividerProps) => {
+  const { isDark } = useTheme()
+
+
+  const activeVariant = variant || (isDark ? 'dark' : 'light')
+
   return (
-    <div      
-      className={cn(dividerVariants({ variant, className }))}      
+    <div
+      className={cn(dividerVariants({ variant: activeVariant, className }))}
       {...props}
     />
-      
   )
 }
 

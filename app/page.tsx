@@ -35,7 +35,7 @@ export default async function Home() {
   return (
     <>
       <Menu withBg={true} />
-      <main className="light:bg-primaryBgLight dark:bg-primaryBgDark">
+      <main className="bg-primaryBgLight dark:bg-primaryBgDark">
         <HeroWrapper heroData={heroData} />
 
         <section className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">
@@ -62,7 +62,7 @@ export default async function Home() {
                   <TextBlock.Section
                     key={block.order}
                     className={
-                      'mx-auto py-16 max-w-[1440px] px-6 md:py-32 md:px-16'
+                      'mx-auto py-16 max-w-360 px-6 md:py-32 md:px-16'
                     }
                     reverse={block.order % 2 === 0 ? true : false}
                   >

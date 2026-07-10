@@ -51,77 +51,79 @@ const Features = async () => {
   const jobs = data?.oldJobsCollection?.items
 
   return (
-    <main className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">
+    <main className="bg-primaryBgLight dark:bg-primaryBgDark">
       <Menu withBg={true} />
-      <section className="mx-auto mt-20 md:py-12 px-6 md:px-12 ">
-        <PageTitle>Våra tjänster</PageTitle>
-        <div className='flex flex-col py-6 '>
-          {mappedFeaturesData &&
-            mappedFeaturesData.map(block => (
-              block.centerTextsection === true ? (
-                <CenterTextBlock
-                  key={block.sys?.id ?? block.order}
-                  className='py-8 lg:py-10'
-                  block={block}
-                  showImage={false}
-                  {...ContentfulLivePreview.getProps({
-                    entryId: block?._id,
-                    fieldId: 'paragraph',
-                    locale: 'sv-SE',
-                  })}
-                />
-              ) : (
-                <TextBlock.Section
-                  key={block.sys?.id ?? block.order}
-                  className={'my-12'}
-                  reverse={block.order % 2 === 0 ? true : false}
-                >
-                  <TextBlock block={block} showImage={true} />
-                </TextBlock.Section>
-              )
-            ))}
-        </div>
+      <section className=" relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25 ">
+        <div className="mx-auto mt-20 md:py-12 px-6 md:px-12">
+          <PageTitle>Våra tjänster</PageTitle>
+          <div className='flex flex-col py-6 '>
+            {mappedFeaturesData &&
+              mappedFeaturesData.map(block => (
+                block.centerTextsection === true ? (
+                  <CenterTextBlock
+                    key={block.sys?.id ?? block.order}
+                    className='py-8 lg:py-10'
+                    block={block}
+                    showImage={false}
+                    {...ContentfulLivePreview.getProps({
+                      entryId: block?._id,
+                      fieldId: 'paragraph',
+                      locale: 'sv-SE',
+                    })}
+                  />
+                ) : (
+                  <TextBlock.Section
+                    key={block.sys?.id ?? block.order}
+                    className={'my-12'}
+                    reverse={block.order % 2 === 0 ? true : false}
+                  >
+                    <TextBlock block={block} showImage={true} />
+                  </TextBlock.Section>
+                )
+              ))}
+          </div>
 
-        <div className=''>
-          <Typography variant='h2' className='font-advisor font-extrabold' >
-            Tidigare arbeten
-          </Typography>
-          <Divider variant="primary" />
+          <div className=''>
+            <Typography variant='h2' className='font-advisor font-extrabold' >
+              Tidigare arbeten
+            </Typography>
+            <Divider />
 
-          <div className='mt-6 md:mt-10 flex flex-col gap-16'>
-            {jobs.map((job: JobProps, idx: number) => {
+            <div className='mt-6 md:mt-10 flex flex-col gap-16'>
+              {jobs.map((job: JobProps, idx: number) => {
 
-              const carouselImages = job.jobImagesCollection?.items || [];
+                const carouselImages = job.jobImagesCollection?.items || [];
 
-              return (
-                <div key={idx} className="w-full flex flex-col gap-8 border-b border-gray-100 pb-12 last:border-0">
+                return (
+                  <div key={idx} className="w-full flex flex-col gap-8 border-b border-gray-100 pb-12 last:border-0">
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
 
-                    <div className="w-full">
-                      <ImageCarousel images={carouselImages} />
+                      <div className="w-full">
+                        <ImageCarousel images={carouselImages} />
+                      </div>
+
+                      <div className="w-full">
+                        <JobDetails title={job.jobTitle} description={job.jobDescription} />
+                      </div>
+
                     </div>
 
-                    <div className="w-full">
-                      <JobDetails title={job.jobTitle} description={job.jobDescription} />
-                    </div>
 
+                    {job.clientQuote?.json && (
+                      <div className="w-full bg-gray-50/70 p-6 md:p-8 rounded-2xl border-l-4 border-primary-accent mt-4">
+                        <span className="block text-xs font-bold uppercase tracking-wider text-primary-accent mb-2">
+                          Klientens omdöme
+                        </span>
+                        <blockquote className="text-gray-700 italic font-medium md:text-lg leading-relaxed">
+                          &quot;{documentToReactComponents(job.clientQuote.json, richTextOptions)}&quot;
+                        </blockquote>
+                      </div>
+                    )}
                   </div>
-
-
-                  {job.clientQuote?.json && (
-                    <div className="w-full bg-gray-50/70 p-6 md:p-8 rounded-2xl border-l-4 border-primary-accent mt-4">
-                      <span className="block text-xs font-bold uppercase tracking-wider text-primary-accent mb-2">
-                        Klientens omdöme
-                      </span>
-                      <blockquote className="text-gray-700 italic font-medium md:text-lg leading-relaxed">
-                        &quot;{documentToReactComponents(job.clientQuote.json, richTextOptions)}&quot;
-                      </blockquote>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

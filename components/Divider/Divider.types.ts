@@ -1,4 +1,4 @@
-export interface DividerProps  {
+export interface DividerProps {
   className?: string
-  variant: 'primary' | 'gradient'
+  variant?: 'light' | 'dark' | 'gradient' | undefined
 }

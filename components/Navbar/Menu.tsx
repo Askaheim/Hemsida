@@ -82,7 +82,7 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
               alt='corporate logo'
               width={65 / 1.1}
               height={36 / 1.1}
-              className='max-w-[100px] md:max-w-none'
+              className='max-w-25 md:max-w-none'
               loading='eager'
             />
           ) : (
@@ -91,7 +91,7 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
               alt='corporate logo'
               width={65 / 1.1}
               height={36 / 1.1}
-              className='max-w-[100px] md:max-w-none'
+              className='max-w-25 md:max-w-none'
               loading='eager'
             />
           )}
@@ -107,7 +107,7 @@ const Menu = ({ withBg = true, variant = 'light' }) => {
                 )}
               >
                 {link.title}
-                <span className='absolute inset-x-0 -bottom-px h-[2px] bg-primary-accent opacity-0 transition group-hover:opacity-100'></span>
+                <span className='absolute inset-x-0 -bottom-px h-0.5 bg-primary-accent opacity-0 transition group-hover:opacity-100'></span>
               </Typography>
             </Link>
           ))}

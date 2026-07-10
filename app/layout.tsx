@@ -12,6 +12,7 @@ import { draftMode } from 'next/headers'
 import Script from 'next/script'
 import './globals.css'
 import { GET_NAVBAR } from '@/queries/getNavbar'
+import { ThemeProvider } from '@/context/ThemeContext'
 
 const advisor = localFont({
   src: [
@@ -65,19 +66,19 @@ export async function generateMetadata(): Promise<Metadata> {
       default: 'Askaheim Kakelugnsmakeri',
     },
     description: `Created by Alexander&son for ${metaCustomer}`,
-     icons: {
-       icon: [
-      {
-        url: "/favicon-light.svg",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/favicon-dark.svg",
-        media: "(prefers-color-scheme: dark)",
-      },
-    ],
-   apple: "/apple-touch-icon.png",
-    shortcut: "/favicon.ico",
+    icons: {
+      icon: [
+        {
+          url: "/favicon-light.svg",
+          media: "(prefers-color-scheme: light)",
+        },
+        {
+          url: "/favicon-dark.svg",
+          media: "(prefers-color-scheme: dark)",
+        },
+      ],
+      apple: "/apple-touch-icon.png",
+      shortcut: "/favicon.ico",
     },
     keywords: [
       'kakelugnsmakeri',
@@ -126,13 +127,15 @@ export default async function RootLayout({
     >
       <body className={'max-w-[100vw] overflow-x-hidden'}>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <MenuContextProvider navbarData={navbarData}>
-            <MenuList />
-            <LivePreviewProvider isEnabled={isEnabled}>
-              {children}
-              <Footer socialMediaData={socialMediaData} />
-            </LivePreviewProvider>
-          </MenuContextProvider>
+          <ThemeProvider>
+            <MenuContextProvider navbarData={navbarData}>
+              <MenuList />
+              <LivePreviewProvider isEnabled={isEnabled}>
+                {children}
+                <Footer socialMediaData={socialMediaData} />
+              </LivePreviewProvider>
+            </MenuContextProvider>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
       {isEnabled && <Script src='/live-preview.mjs' />}
