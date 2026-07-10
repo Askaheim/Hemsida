@@ -5,7 +5,6 @@ import TileGrid from "./TileGrid";
 import { LandingpageHeroSectionProps } from "./LandingpageHeroSection.types";
 import ContentBox from "../ContentBox/ContentBox";
 import { AnimationGeneratorType, motion, Variants } from 'framer-motion';
-import { cn } from "@/utils/utils";
 
 const LandingpageHeroSection = ({ hero }: LandingpageHeroSectionProps) => {
   const { heroTitle, heroText, heroImage, heroCtaPrimary, heroCtaSecondary } = hero;
