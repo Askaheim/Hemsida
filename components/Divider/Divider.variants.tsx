@@ -5,12 +5,13 @@ export const dividerVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-black',
+        light: 'bg-black',
+        dark: 'bg-white',
         gradient: 'bg-gradient-to-r from-[#2F3BEA] to-[#B1159F] dark:from-[#B1159F] dark:to-[#2F3BEA] transition-all duration-300',
       },
-    defaultVariants: {
-      variant: 'gradient',      
+      defaultVariants: {
+        variant: 'gradient',
+      },
     },
-  },
   }
 )

@@ -20,7 +20,7 @@ const title = cva('flex flex-col gap-1 break-words pt-20 pb-10 font-advisor', {
 const PageTitle = ({
   children,
   className,
-  variant = 'light',
+  variant,
   ...props
 }: PageTitleProps) => {
   return (
@@ -30,7 +30,7 @@ const PageTitle = ({
       {...props}
     >
       {children}
-      <Divider variant='primary' />
+      <Divider variant={variant} />
     </Typography>
   )
 }
