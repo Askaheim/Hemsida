@@ -2,7 +2,7 @@
 
 import { styles } from '@/utils/styles'
 import { cn } from '@/utils/utils'
-import emailjs from '@emailjs/browser'
+// import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
 import { ChangeEvent, FormEvent, useRef, useState } from 'react'
 import Button from '../Button/Button'
@@ -20,9 +20,9 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
   const [loading, setLoading] = useState<boolean>(false)
 
   // EMAILJS KEYS
-  const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+  /* const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID */
 
   // ChangeEvent type for input elements
   const handleChange = (
