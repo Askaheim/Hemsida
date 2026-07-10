@@ -30,7 +30,7 @@ const PageTitle = ({
   return (
     <Typography
       variant='h1'
-      className={cn(title({ variant: isDark ? 'dark' : 'light', className }))}
+      className={cn(title({ variant: variant ?? (isDark ? 'dark' : 'light'), className }))}
       {...props}
     >
       {children}
