@@ -30,7 +30,7 @@ const PageTitle = ({
       {...props}
     >
       {children}
-      <Divider variant={variant} />
+      <Divider />
     </Typography>
   )
 }
