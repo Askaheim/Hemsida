@@ -127,7 +127,7 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
               value={form.message}
               onChange={handleChange}
               placeholder='Vad vill du säga? Skriv ditt meddelande här'
-              className='bg-primaryBgLight placeholder:text-primary-300 text-text-primary-dark rounded-lg border-none px-6 py-4 font-medium outline-none'
+              className='bg-primaryBgLight placeholder:text-primary-300 text-text-primary-light rounded-lg border-none px-6 py-4 font-medium outline-none'
             />
           </label>
           <Button

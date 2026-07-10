@@ -35,7 +35,7 @@ export default async function Home() {
   return (
     <>
       <Menu withBg={true} />
-      <main className="light:bg-primaryBgLight dark:bg-primaryBgDark">
+      <main className="bg-primaryBgLight dark:bg-primaryBgDark">
         <HeroWrapper heroData={heroData} />
 
         <section className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">

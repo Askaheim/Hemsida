@@ -51,7 +51,7 @@ const Features = async () => {
   const jobs = data?.oldJobsCollection?.items
 
   return (
-    <main className="light:bg-primaryBgLight dark:bg-primaryBgDark">
+    <main className="bg-primaryBgLight dark:bg-primaryBgDark">
       <Menu withBg={true} />
       <section className=" relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25 ">
         <div className="mx-auto mt-20 md:py-12 px-6 md:px-12">

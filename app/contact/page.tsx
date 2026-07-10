@@ -10,9 +10,10 @@ import { draftMode } from 'next/headers'
 import { ContactDataProps } from './contact.types'
 import CenterTextBlock from '@/components/TextSections/CenterTextSection'
 import { ContentfulLivePreview } from '@contentful/live-preview'
+import { Metadata } from 'next'
 
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Contact',
   description: `${customerData.contactMessage}`,
 }
@@ -40,39 +41,41 @@ const Contact = async () => {
     center: section.centerTextsection,
   }))
   return (
-    <main className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">
+    <main className="bg-primaryBgLight dark:bg-primaryBgDark">
       <Menu withBg={true} />
-      <section className='section-contain mt-20'>
-        <PageTitle>Kontakt</PageTitle>
-        <div className='flex flex-col py-12 md:py-20'>
-          {mappedContactData &&
-            mappedContactData.map((section, idx) => (
-              section.center ? (
-                <CenterTextBlock
-                  key={idx}
-                  className='my-8 lg:my-10'
-                  block={section}
-                  showImage={false}
-                  {...ContentfulLivePreview.getProps({
-                    entryId: 'section._id',
-                    fieldId: 'paragraph',
-                    locale: 'sv-SE',
-                  })}
-                />
-              ) : (
-                <TextBlock.Section
-                  key={idx}
-                  className='mx-auto my-16 max-w-[1440px] px-6 md:my-32 md:px-16'
-                  reverse={section.order % 2 === 0 ? true : false}
-                >
-                  <TextBlock block={section} showImage={true} />
-                </TextBlock.Section>
-              )
+      <section className=" relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">
+        <div className="section-contain mt-20 md:py-12" >
+          <PageTitle>Kontakt</PageTitle>
+          <div className='flex flex-col py-12 md:py-20'>
+            {mappedContactData &&
+              mappedContactData.map((section, idx) => (
+                section.center ? (
+                  <CenterTextBlock
+                    key={idx}
+                    className='my-8 lg:my-10'
+                    block={section}
+                    showImage={false}
+                    {...ContentfulLivePreview.getProps({
+                      entryId: 'section._id',
+                      fieldId: 'paragraph',
+                      locale: 'sv-SE',
+                    })}
+                  />
+                ) : (
+                  <TextBlock.Section
+                    key={idx}
+                    className='mx-auto my-16 max-w-360 px-6 md:my-32 md:px-16'
+                    reverse={section.order % 2 === 0 ? true : false}
+                  >
+                    <TextBlock block={section} showImage={true} />
+                  </TextBlock.Section>
+                )
 
-            ))}
-        </div>
-        <div className='flex flex-col items-center justify-center'>
-          <ContactFormProvider classNames='mb-20' />
+              ))}
+          </div>
+          <div className='flex flex-col items-center justify-center'>
+            <ContactFormProvider classNames='mb-20' />
+          </div>
         </div>
       </section>
     </main>
