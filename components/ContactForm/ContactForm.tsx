@@ -69,20 +69,36 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
     e.preventDefault()
     setLoading(true)
 
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
-    })
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: form.from,
+          email: form.email,
+          message: form.message,
+          receiverName: formData.receiverName,
+          receiverEmail: formData.receiverEmail,
+        }),
+      })
 
-    if (res.ok) {
-      setLoading(false)
-      alert(`${formData.feedback}`)
+      const data = await res.json()
 
-      setForm(form) // Reset form to initial state
-    } else {
+      if (res.ok && data.success) {
+        // NU är det en riktig succé!
+        alert(`${formData.feedback}`)
+        setForm({ from: '', email: '', message: '' })
+      } else {
+        // Om servern svarade med t.ex. status 400 eller 500
+        console.error('Servern returnerade ett fel:', data.error)
+        alert('Kunde inte skicka meddelandet. Försök igen senare.')
+      }
+    } catch (error) {
+      // Om det blev nätverksfel eller liknande
+      console.error('Nätverksfel:', error)
+      alert('Ett oväntat fel uppstod.')
+    } finally {
       setLoading(false)
-      alert('An error occurred. Please try again later.')
     }
   }
 
