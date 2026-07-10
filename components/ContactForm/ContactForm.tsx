@@ -20,9 +20,9 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
   const [loading, setLoading] = useState<boolean>(false)
 
   // EMAILJS KEYS
-  const serviceID = process.env.NEXT_EMAILJS_SERVICE_ID
+  const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-  const templateId = ''
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
 
   // ChangeEvent type for input elements
   const handleChange = (
@@ -33,7 +33,7 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
   }
 
   // FormEvent type for the form submit handler
-  const handleSubmit = (e: FormEvent) => {
+  /* const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
 
@@ -63,6 +63,27 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
           alert('An error occurred. Please try again later.')
         },
       )
+  } */
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setLoading(true)
+
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form)
+    })
+
+    if (res.ok) {
+      setLoading(false)
+      alert(`${formData.feedback}`)
+
+      setForm(form) // Reset form to initial state
+    } else {
+      setLoading(false)
+      alert('An error occurred. Please try again later.')
+    }
   }
 
   return (

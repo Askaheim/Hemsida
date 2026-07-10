@@ -6,11 +6,11 @@ const Button = ({
   children,
   className,
   variant,
-  size, 
+  size,
   onClick,
   ...props
 }: ButtonProps) => {
- 
+
 
   // If the variant is not provided, default to 'primary'
   variant = variant || 'primary'
@@ -19,7 +19,7 @@ const Button = ({
   // If the className is not provided, default to an empty string
   className = className || ''
   // Ensure that the variant and size are valid
-  const validVariants = ['primary', 'secondary']
+  const validVariants = ['primary', 'secondary', 'clear']
   const validSizes = ['sm', 'md', 'lg']
   if (!validVariants.includes(variant)) {
     console.warn(`Invalid variant "${variant}" provided. Defaulting to "primary".`)
@@ -31,7 +31,7 @@ const Button = ({
   }
 
   return (
-    <button      
+    <button
       className={cn(buttonVariants({ size, variant, className }))}
       onClick={onClick}
       type="button"
