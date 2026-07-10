@@ -10,13 +10,14 @@ const ContentBox = ({
     heroCtaPrimary,
     heroCtaSecondary,
     heroImage,
-    variant = 'light'
+    variant = 'light',
+    className = ''
 }: ContentBoxProps) => {
 
     const title = heroTitle || "Välkommen till Askaheim";
     return (
         /* Removed absolute inset-0 from here so it doesn't conflict with Framer Motion layout boundaries */
-        <div className="max-w-2xl w-full p-8 md:p-12 bg-[#493a3a]/60 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl">
+        <div className={cn("max-w-2xl w-full p-8 md:p-12 bg-[#493a3a]/60 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl", className)}>
 
             <div className="flex justify-center">
                 {heroImage ? (
