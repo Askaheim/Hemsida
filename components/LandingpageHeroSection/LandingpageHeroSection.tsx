@@ -53,7 +53,7 @@ const LandingpageHeroSection = ({ hero }: LandingpageHeroSectionProps) => {
 
 
       <motion.div
-        className="absolute inset-0 z-20 flex justify-center items-center px-4 pointer-events-none"
+        className="absolute inset-0 z-20 flex justify-center items-center px-4 pt-18 md:pt-0 pointer-events-none"
         variants={slideIn('down', 'tween', 3.5, 1.2)} // 3.5 seconds delay passed dynamically here
         initial="hidden"
         animate="show"
@@ -65,7 +65,6 @@ const LandingpageHeroSection = ({ hero }: LandingpageHeroSectionProps) => {
           heroImage={heroImage}
           heroCtaPrimary={heroCtaPrimary}
           heroCtaSecondary={heroCtaSecondary}
-          className={cn(`mt-2 md:mt-0`)}
         />
       </motion.div>
     </section>

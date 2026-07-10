@@ -15,5 +15,4 @@ export interface ContentBoxProps {
     heroCtaPrimary?: string;
     heroCtaSecondary?: string;
     variant?: 'light' | 'dark';
-    className?: string;
 }
