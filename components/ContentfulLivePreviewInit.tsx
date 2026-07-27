@@ -6,7 +6,7 @@ import { ContentfulLivePreview } from '@contentful/live-preview'
 export default function ContentfulLivePreviewInit() {
     useEffect(() => {
         ContentfulLivePreview.init({
-            locale: 'sv-SE',
+            locale: 'en-US',
             enableInspectorMode: true,
             enableLiveUpdates: true,
             debugMode: true,
