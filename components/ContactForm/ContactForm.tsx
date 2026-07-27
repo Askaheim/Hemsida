@@ -19,10 +19,6 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
   const formRef = useRef<HTMLFormElement | null>(null) // Typing the formRef as HTMLFormElement
   const [loading, setLoading] = useState<boolean>(false)
 
-  // EMAILJS KEYS
-  /* const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID */
 
   // ChangeEvent type for input elements
   const handleChange = (
@@ -31,39 +27,6 @@ const ContactForm = ({ formData, classNames, ...props }: FormDataProps) => {
     const { name, value } = e.target
     setForm({ ...form, [name]: value })
   }
-
-  // FormEvent type for the form submit handler
-  /* const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setLoading(true)
-
-    emailjs
-      .send(
-        serviceID ?? '',
-        templateId ?? '',
-        {
-          from_name: form.from,
-          to_name: formData.receiverName,
-          from_email: form.email,
-          to_email: formData.receiverEmail,
-          message: form.message,
-        },
-        publicKey ?? '',
-      )
-      .then(
-        () => {
-          setLoading(false)
-          alert(`${formData.feedback}`)
-
-          setForm(form) // Reset form to initial state
-        },
-        error => {
-          console.log(error.text)
-          setLoading(false)
-          alert('An error occurred. Please try again later.')
-        },
-      )
-  } */
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
