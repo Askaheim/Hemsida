@@ -17,7 +17,7 @@ const LivePreviewProvider = ({
       locale='sv-SE'
       enableInspectorMode={isEnabled}
       enableLiveUpdates={isEnabled}
-      targetOrigin='https://app.eu.contentful.com'
+      targetOrigin={['https://app.contentful.com', 'https://app.eu.contentful.com']}
     >
       {children}
     </ContentfulLivePreviewProvider>
