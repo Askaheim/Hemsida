@@ -35,7 +35,7 @@ const About = async () => {
     []) as BlockProps[]
 
   // Sort by order
-  const sortedAboutPageTextSections = aboutTextSections.sort(
+  const sortedAboutPageTextSections = [...aboutTextSections].sort(
     (a, b) => a.order - b.order,
   )
 
