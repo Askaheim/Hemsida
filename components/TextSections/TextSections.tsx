@@ -56,7 +56,7 @@ const TextBlock: React.FC<TextBlockProps> & {
           {...ContentfulLivePreview.getProps({
             assetId: block?._id ?? '',
             fieldId: 'logos',
-            locale: 'en-US',
+            locale: 'sv-SE',
           })}
           variant='h2'
           className='font-advisor dark:text-text-primary-dark light:text-text-primary-light'
@@ -67,7 +67,7 @@ const TextBlock: React.FC<TextBlockProps> & {
           {...ContentfulLivePreview.getProps({
             entryId: block?._id ?? '',
             fieldId: 'logos',
-            locale: 'en-US',
+            locale: 'sv-SE',
           })}
           className='font-poppins dark:text-text-primary-dark light:text-text-primary-light flex flex-col gap-4'
         >
@@ -85,7 +85,7 @@ const TextBlock: React.FC<TextBlockProps> & {
           {...ContentfulLivePreview.getProps({
             assetId: block?.sys?.id ?? '',
             fieldId: 'logos',
-            locale: 'en-US',
+            locale: 'sv-SE',
           })}
         />
       )}

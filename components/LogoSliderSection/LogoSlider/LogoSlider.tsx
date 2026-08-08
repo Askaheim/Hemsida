@@ -44,13 +44,13 @@ const LogoSlider = ({ logoData, className, ...props }: LogoSliderProps) => {
               {...ContentfulLivePreview.getProps({
                 assetId: logo?.sys?.id ?? '',
                 fieldId: 'logos',
-                locale: 'en-US',
+                locale: 'sv-SE',
               })}
             />
           </div>
         ))}
       </Marquee>
-      <div className='absolute top-0 right-0 z-10 h-full w-10 bg-gradient-to-l from-white md:w-14' />
+      <div className='absolute top-0 right-0 z-10 h-full w-10 bg-linear-to-l from-white md:w-14' />
     </section>
   )
 }

@@ -31,7 +31,7 @@ const tos = async () => {
             {...ContentfulLivePreview.getProps({
               entryId: tosContent?._id,
               fieldId: 'policy',
-              locale: 'en-US',
+              locale: 'sv-SE',
             })}
             className='my-16 px-4 md:my-32'
           >

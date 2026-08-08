@@ -28,8 +28,11 @@ export default async function Home() {
     []) as BlockProps[]
 
   // Sort by order
-  const sortedFrontPageTextSections = frontPageTextSections.sort(
+  /* const sortedFrontPageTextSections = frontPageTextSections.sort(
     (a, b) => a.order - b.order,
+  ) */
+  const sortedFrontPageTextSections = [...frontPageTextSections].sort(
+    (a, b) => a.order - b.order
   )
 
   return (
