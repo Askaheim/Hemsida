@@ -25,14 +25,14 @@ const policy = async () => {
   return (
     <>
       <Menu />
-      <main className='section-contain mt-20 min-h-screen max-w-[1024px]'>
+      <main className='section-contain mt-20 min-h-screen max-w-5xl'>
         <PageTitle>{policyContent[0].policyTitle}</PageTitle>
         {policyContent && (
           <article
             {...ContentfulLivePreview.getProps({
               entryId: policyContent[0]?._id,
               fieldId: 'policy',
-              locale: 'en-US',
+              locale: 'sv-SE',
             })}
             className='my-16 px-4 md:my-32'
           >

@@ -23,7 +23,7 @@ const QuoteSection = async ({
           {...ContentfulLivePreview.getProps({
             entryId: quoteItem.sys.id,
             fieldId: 'quoteText',
-            locale: 'en-US',
+            locale: 'sv-SE',
           })}
         >
           <QuoteTextBlock block={quoteItem.quoteText.json} />

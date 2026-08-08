@@ -121,7 +121,7 @@ const About = async () => {
                         {...ContentfulLivePreview.getProps({
                           assetId: worker?.sys?.id ?? '',
                           fieldId: 'logos',
-                          locale: 'en-US',
+                          locale: 'sv-SE',
                         })}
                         className='font-poppins dark:text-text-primary-dark light:text-text-primary-light flex flex-col gap-4 items-start justify-center text-xl font-normal'
                       >
