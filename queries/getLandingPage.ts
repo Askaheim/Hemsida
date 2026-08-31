@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 export const GET_LANDING_DATA = gql`
  query GetData($preview: Boolean) {
-  heroSectionCollection(limit: 1, preview: $preview) {
+   heroSectionCollection(limit: 1, preview: $preview) {
     items {
     _id
       heroTitle
@@ -9,6 +9,9 @@ export const GET_LANDING_DATA = gql`
         json
       }
       heroImage {
+        url
+      }
+      heroBgImage {
         url
       }
       heroCtaPrimary

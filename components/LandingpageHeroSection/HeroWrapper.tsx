@@ -20,6 +20,9 @@ type HeroDataProps = {
     heroImage: {
         url: string
     }
+    heroBgImage?: {
+        url: string;
+    }
 }
 
 export default function HeroWrapper({ heroData }: { heroData: HeroDataProps }) {
