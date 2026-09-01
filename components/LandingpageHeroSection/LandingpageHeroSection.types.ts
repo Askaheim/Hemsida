@@ -16,7 +16,9 @@ export interface LandingpageHeroSectionProps {
         heroCtaSecondary?: string;
         heroImage?: {
             url: string;
-
+        };
+        heroBgImage?: {
+            url: string;
         };
     };
 }
