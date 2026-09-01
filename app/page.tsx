@@ -6,8 +6,8 @@ import { ContentfulLivePreview } from '@contentful/live-preview'
 import { draftMode } from 'next/headers'
 import { GET_LANDING_DATA } from '@/queries/getLandingPage'
 import TextBlock from '@/components/TextSections/TextSections'
-import HeroWrapper from '@/components/LandingpageHeroSection/HeroWrapper'
 import CenterTextBlock from '@/components/TextSections/CenterTextSection'
+import LandingpageHeroSection from '@/components/LandingpageHeroSection/LandingpageHeroSection'
 
 export default async function Home() {
   const { isEnabled } = await draftMode()
@@ -27,10 +27,7 @@ export default async function Home() {
   const frontPageTextSections = (data?.frontPageTextSectionsCollection?.items ??
     []) as BlockProps[]
 
-  // Sort by order
-  /* const sortedFrontPageTextSections = frontPageTextSections.sort(
-    (a, b) => a.order - b.order,
-  ) */
+  // Sort by order  
   const sortedFrontPageTextSections = [...frontPageTextSections].sort(
     (a, b) => a.order - b.order
   )
@@ -39,7 +36,7 @@ export default async function Home() {
     <>
       <Menu withBg={true} />
       <main className="bg-primaryBgLight dark:bg-primaryBgDark">
-        <HeroWrapper heroData={heroData} />
+        <LandingpageHeroSection hero={heroData} />
 
         <section className="relative z-10 min-h-screen before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/bgFixedNO.png')] before:bg-contain before:opacity-25">
 
