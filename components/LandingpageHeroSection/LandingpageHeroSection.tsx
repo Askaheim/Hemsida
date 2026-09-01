@@ -1,43 +1,37 @@
 "use client";
 
-import { Canvas } from "@react-three/fiber";
-import TileGrid from "./TileGrid";
 import { LandingpageHeroSectionProps } from "./LandingpageHeroSection.types";
+import Image from "next/image";
 import ContentBox from "../ContentBox/ContentBox";
-import { AnimationGeneratorType, motion, Variants } from 'framer-motion';
-import NewHero from "./new/NewHero";
 
 const LandingpageHeroSection = ({ hero }: LandingpageHeroSectionProps) => {
-    const { heroTitle, heroText, heroImage, heroCtaPrimary, heroCtaSecondary } = hero;
-
-    // slideIn function with delay built-in
-    const slideIn = (
-        direction: string,
-        type: AnimationGeneratorType | undefined,
-        delay: number,
-        duration: number
-    ): Variants => ({
-        hidden: {
-            y: direction === 'down' ? '-100%' : direction === 'up' ? '100%' : 0,
-            x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
-            opacity: 0,
-        },
-        show: {
-            x: 0,
-            y: 0,
-            opacity: 1,
-            transition: {
-                type: type,
-                delay: delay, // This is your delay parameter (seconds)
-                duration: duration,
-                ease: "easeOut"
-            },
-        },
-    });
+    const { heroTitle, heroText, heroImage, heroBgImage, heroCtaPrimary, heroCtaSecondary } = hero;
 
     return (
-        <section style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden", background: "#fff" }}>
-            <NewHero hero={hero} />
+        <section className="relative w-full h-screen overflow-hidden bg-white">
+            <div className="relative w-full h-full flex items-center justify-center">
+                <Image
+                    src={heroBgImage?.url || ""}
+                    alt={heroTitle || ""}
+                    fill
+                    priority
+                    className="absolute inset-0 object-cover object-center z-0"
+                    sizes="100vw"
+                    quality={90}
+                />
+
+                <div className="relative z-10">
+
+                    <ContentBox
+                        variant="light"
+                        heroTitle={heroTitle}
+                        heroText={heroText}
+                        heroImage={heroImage}
+                        heroCtaPrimary={heroCtaPrimary}
+                        heroCtaSecondary={heroCtaSecondary}
+                    />
+                </div>
+            </div>
         </section>
     );
 }
