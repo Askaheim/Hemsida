@@ -19,27 +19,31 @@ const tos = async () => {
     },
   })
 
-  const tosContent = data?.termsOfServiceCollection?.items
+  const tosContent = data?.termsOfServiceCollection?.items ?? []
+  const tosEntry = tosContent[0]
 
   return (
     <>
       <Menu />
       <main className='section-contain mt-20 min-h-screen max-w-5xl'>
-        <PageTitle>{tosContent[0].policyTitle}</PageTitle>
-        {tosContent && (
-          <article
-            {...ContentfulLivePreview.getProps({
-              entryId: tosContent?.sys.id,
-              fieldId: 'policy',
-              locale: 'sv-SE',
-            })}
-            className='my-16 px-4 md:my-32'
-          >
-            {documentToReactComponents(
-              tosContent[0].policyText.json,
-              richTextOptions,
-            )}
-          </article>
+        {tosEntry && (
+          <>
+            <PageTitle>{tosEntry.policyTitle}</PageTitle>
+
+            <article
+              {...ContentfulLivePreview.getProps({
+                entryId: tosEntry.sys.id,
+                fieldId: 'policyText',
+                locale: 'sv-SE',
+              })}
+              className='my-16 px-4 md:my-32'
+            >
+              {documentToReactComponents(
+                tosEntry.policyText.json,
+                richTextOptions,
+              )}
+            </article>
+          </>
         )}
       </main>
     </>
