@@ -66,11 +66,7 @@ export default async function Home() {
                     className='py-8 lg:py-10'
                     block={block}
                     showImage={false}
-                    {...ContentfulLivePreview.getProps({
-                      entryId: block._id,
-                      fieldId: 'paragraph',
-                      locale: 'sv-SE',
-                    })}
+
                   />
                 ) : (
 

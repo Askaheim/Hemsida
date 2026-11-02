@@ -24,7 +24,7 @@ const tos = async () => {
   return (
     <>
       <Menu />
-      <main className='section-contain mt-20 min-h-screen max-w-[1024px]'>
+      <main className='section-contain mt-20 min-h-screen max-w-5xl'>
         <PageTitle>{tosContent[0].policyTitle}</PageTitle>
         {tosContent && (
           <article

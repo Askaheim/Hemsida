@@ -42,7 +42,7 @@ const LogoSliderSection = async ({ preTextData }: LogoSliderSectionProps) => {
         block={preTextData}
         showImage={false}
       />
-      <LogoSlider logoData={logoData} className='h-20 [&>*]:select-none' />
+      <LogoSlider logoData={logoData} className='h-20 *:select-none' />
     </section>
   )
 }
