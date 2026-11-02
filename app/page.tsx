@@ -4,7 +4,7 @@ import apolloClient from '@/lib/apolloClient'
 import previewClient from '@/lib/previewClient'
 import { ContentfulLivePreview } from '@contentful/live-preview'
 import { draftMode } from 'next/headers'
-import { GET_LANDING_DATA } from '@/queries/getLandingPage'
+import { GET_LANDING_DATA, GET_LANDING_DATA_FALLBACK } from '@/queries/getLandingPage'
 import TextBlock from '@/components/TextSections/TextSections'
 import CenterTextBlock from '@/components/TextSections/CenterTextSection'
 import LandingpageHeroSection from '@/components/LandingpageHeroSection/LandingpageHeroSection'
@@ -14,20 +14,36 @@ export default async function Home() {
   const client = isEnabled ? previewClient : apolloClient
 
 
+  let data
 
-  const { data } = await client.query({
-    query: GET_LANDING_DATA,
-    variables: {
-      preview: isEnabled,
-    },
-  })
+  try {
+    const result = await client.query({
+      query: GET_LANDING_DATA,
+      variables: {
+        preview: isEnabled,
+      },
+    })
+
+    data = result.data
+
+  } catch (error) {
+    console.error('Landing page query failed. Retrying without heroBgImage:', error)
+
+    const fallbackResult = await client.query({
+      query: GET_LANDING_DATA_FALLBACK,
+      variables: {
+        preview: isEnabled,
+      },
+    })
+
+    data = fallbackResult.data
+  }
 
   const heroData = data?.heroSectionCollection?.items[0]
 
-  const frontPageTextSections = (data?.frontPageTextSectionsCollection?.items ??
-    []) as BlockProps[]
+  const frontPageTextSections =
+    (data?.frontPageTextSectionsCollection?.items ?? []) as BlockProps[]
 
-  // Sort by order  
   const sortedFrontPageTextSections = [...frontPageTextSections].sort(
     (a, b) => a.order - b.order
   )
