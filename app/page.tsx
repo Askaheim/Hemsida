@@ -3,7 +3,7 @@ import { BlockProps } from '@/components/TextSections/TextSection.types'
 import apolloClient from '@/lib/apolloClient'
 import previewClient from '@/lib/previewClient'
 import { draftMode } from 'next/headers'
-import { GET_LANDING_DATA } from '@/queries/getLandingPage'
+import { GET_LANDING_DATA, GET_LANDING_DATA_FALLBACK } from '@/queries/getLandingPage'
 import TextBlock from '@/components/TextSections/TextSections'
 import CenterTextBlock from '@/components/TextSections/CenterTextSection'
 import LandingpageHeroSection from '@/components/LandingpageHeroSection/LandingpageHeroSection'
@@ -13,23 +13,50 @@ export default async function Home() {
   const client = isEnabled ? previewClient : apolloClient
 
 
-  const { data } = await client.query({
-    query: GET_LANDING_DATA,
-    variables: {
-      preview: isEnabled,
-    },
-  })
+  let data
+
+  try {
+    const result = await client.query({
+      query: GET_LANDING_DATA,
+      variables: {
+        preview: isEnabled,
+      },
+    })
+
+    data = result.data
+
+  } catch (error) {
+    console.error(
+      'GRAPHQL ERRORS:',
+      JSON.stringify(
+        (error as any).graphQLErrors?.map((e: any) => ({
+          message: e.message,
+          path: e.path,
+          locations: e.locations,
+        })),
+        null,
+        2,
+      ),
+    )
+
+    const fallbackResult = await client.query({
+      query: GET_LANDING_DATA_FALLBACK,
+      variables: {
+        preview: isEnabled,
+      },
+    })
+
+    data = fallbackResult.data
+  }
 
   const heroData = data?.heroSectionCollection?.items[0]
 
-  const frontPageTextSections = (data?.frontPageTextSectionsCollection?.items ??
-    []) as BlockProps[]
+  const frontPageTextSections =
+    (data?.frontPageTextSectionsCollection?.items ?? []) as BlockProps[]
 
-  // Sort by order  
   const sortedFrontPageTextSections = [...frontPageTextSections].sort(
     (a, b) => a.order - b.order
   )
-
 
   return (
     <>
