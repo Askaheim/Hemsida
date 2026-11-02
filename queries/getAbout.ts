@@ -28,9 +28,12 @@ export const GET_ABOUT = gql`
       }
       workerName
       workerTitle
-      workerProfileImage {
+       workerProfileImage {
         url
         description
+        sys {
+          id
+        }
       }
       workerText {
         json       
