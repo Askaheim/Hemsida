@@ -54,8 +54,8 @@ const TextBlock: React.FC<TextBlockProps> & {
       <div className='flex flex-col gap-6'>
         <Typography
           {...ContentfulLivePreview.getProps({
-            assetId: block?._id ?? '',
-            fieldId: 'logos',
+            entryId: block._id,
+            fieldId: 'sectionTitle',
             locale: 'sv-SE',
           })}
           variant='h2'
@@ -65,8 +65,8 @@ const TextBlock: React.FC<TextBlockProps> & {
         </Typography>
         <article
           {...ContentfulLivePreview.getProps({
-            entryId: block?._id ?? '',
-            fieldId: 'logos',
+            entryId: block._id,
+            fieldId: 'sectionText',
             locale: 'sv-SE',
           })}
           className='font-poppins dark:text-text-primary-dark light:text-text-primary-light flex flex-col gap-4'
@@ -83,8 +83,8 @@ const TextBlock: React.FC<TextBlockProps> & {
           height={993}
           className='h-full rounded-lg object-cover object-center'
           {...ContentfulLivePreview.getProps({
-            assetId: block?.sys?.id ?? '',
-            fieldId: 'logos',
+            assetId: block.sectionImage?.sys?.id ?? '',
+            fieldId: 'file',
             locale: 'sv-SE',
           })}
         />
