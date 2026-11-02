@@ -40,6 +40,9 @@ export type coworkerBlockProps = {
   workerProfileImage: {
     url: string
     description: string
+    sys?: {
+      id?: string
+    }
   }
   workerText: {
     json: RichTextDocument
