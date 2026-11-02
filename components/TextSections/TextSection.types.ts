@@ -10,7 +10,9 @@ export interface BlockProps {
   _id: string
   sys?: ContentfulSys
   sectionTitle?: string
-  sectionText?: { json: RichTextDocument }
+  sectionText?: {
+    json: RichTextDocument
+  }
   sectionImage?: ImageProps
   order: number
   centerTextsection?: boolean

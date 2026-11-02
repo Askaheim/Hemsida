@@ -56,29 +56,25 @@ export default async function Home() {
         <section className="relative z-10 min-h-screen ">
 
           <div className='section-contain mt-0'>
-            {sortedFrontPageTextSections &&
-              sortedFrontPageTextSections.map(block => (
+            {sortedFrontPageTextSections.map(block => {
 
-                (block.centerTextsection ? (
-                  <CenterTextBlock
-                    key={block.order}
-                    className='py-8 lg:py-10'
-                    block={block}
-                    showImage={false}
-
-                  />
-                ) : (
-
-                  <TextBlock.Section
-                    key={block.order}
-                    className={
-                      'mx-auto py-16 max-w-360 px-6 md:py-32 md:px-16'
-                    }
-                    reverse={block.order % 2 === 0 ? true : false}
-                  >
-                    <TextBlock block={block} showImage={true} />
-                  </TextBlock.Section>
-                ))))}
+              return block.centerTextsection ? (
+                <CenterTextBlock
+                  key={block.order}
+                  className='py-8 lg:py-10'
+                  block={block}
+                  showImage={false}
+                />
+              ) : (
+                <TextBlock.Section
+                  key={block.order}
+                  className='mx-auto py-16 max-w-360 px-6 md:py-32 md:px-16'
+                  reverse={block.order % 2 === 0}
+                >
+                  <TextBlock block={block} showImage={true} />
+                </TextBlock.Section>
+              )
+            })}
           </div>
         </section>
       </main>

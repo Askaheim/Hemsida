@@ -53,7 +53,7 @@ const CenterTextBlock: React.FC<TextBlockProps> & {
       <div className='text-primaryText flex flex-col gap-6'>
         <Typography
           {...ContentfulLivePreview.getProps({
-            entryId: block._id,
+            entryId: block.sys!.id,
             fieldId: 'sectionTitle',
             locale: 'sv-SE',
           })}
@@ -64,7 +64,7 @@ const CenterTextBlock: React.FC<TextBlockProps> & {
         </Typography>
         <article
           {...ContentfulLivePreview.getProps({
-            entryId: block._id,
+            entryId: block.sys!.id,
             fieldId: 'sectionText',
             locale: 'sv-SE',
           })}

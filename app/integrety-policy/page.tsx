@@ -30,7 +30,7 @@ const policy = async () => {
         {policyContent && (
           <article
             {...ContentfulLivePreview.getProps({
-              entryId: policyContent[0]?._id,
+              entryId: policyContent[0]?.sys?.id,
               fieldId: 'policy',
               locale: 'sv-SE',
             })}
