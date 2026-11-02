@@ -18,10 +18,10 @@ const tos = async () => {
       preview: isEnabled,
     },
   })
-
   const tosContent = data?.termsOfServiceCollection?.items ?? []
   const tosEntry = tosContent[0]
 
+  console.log(tosContent)
   return (
     <>
       <Menu />
