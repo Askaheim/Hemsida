@@ -67,8 +67,7 @@ export default async function Home() {
                     block={block}
                     showImage={false}
                     {...ContentfulLivePreview.getProps({
-                      entryId:
-                        block?._id,
+                      entryId: block._id,
                       fieldId: 'paragraph',
                       locale: 'sv-SE',
                     })}
