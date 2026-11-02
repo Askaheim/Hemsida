@@ -26,18 +26,7 @@ export default async function Home() {
     data = result.data
 
   } catch (error) {
-    console.error(
-      'GRAPHQL ERRORS:',
-      JSON.stringify(
-        (error as any).graphQLErrors?.map((e: any) => ({
-          message: e.message,
-          path: e.path,
-          locations: e.locations,
-        })),
-        null,
-        2,
-      ),
-    )
+    console.error('Landing page query failed. Retrying without heroBgImage:', error)
 
     const fallbackResult = await client.query({
       query: GET_LANDING_DATA_FALLBACK,
