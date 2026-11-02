@@ -182,7 +182,7 @@
   --color-text-primary-dark: #ffffff;
   --color-text-primary-light: #000000;
   --color-primaryBgDark: #060222;
-  --color-primaryBgLight: #f3f2ef;
+  --color-primaryBgLight: #fffdf8;
   --color-primary-900: hsl(256, 43%, 7%);
   --color-primary-800: hsl(240, 24%, 13%);
   --color-primary-700: hsl(243, 26%, 15%);
@@ -218,6 +218,7 @@
 
 }
 
+/* --primaryBgLight: #f3f2ef; */
 @layer base {
   :root {
     --bronze-1: #f5cd79;
@@ -225,7 +226,7 @@
     --text-primary-dark: #ffffff;
     --text-primary-light: #000000;
     --primaryBgDark: #060222;
-    --primaryBgLight: #f3f2ef;
+    --primaryBgLight: #fffdf8;
     --primary-900: hsl(256, 43%, 7%);
     --primary-800: hsl(240, 24%, 13%);
     --primary-700: hsl(243, 26%, 15%);
