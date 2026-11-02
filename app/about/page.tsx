@@ -59,12 +59,7 @@ const About = async () => {
                   className='my-8 lg:my-10'
                   block={sortedAboutPageTextSections[0]}
                   showImage={false}
-                  {...ContentfulLivePreview.getProps({
-                    entryId:
-                      block?._id,
-                    fieldId: 'paragraph',
-                    locale: 'sv-SE',
-                  })}
+
                 />
               ) : (
 

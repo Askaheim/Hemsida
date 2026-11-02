@@ -55,11 +55,7 @@ const Contact = async () => {
                     className='my-8 lg:my-10'
                     block={section}
                     showImage={false}
-                    {...ContentfulLivePreview.getProps({
-                      entryId: 'section._id',
-                      fieldId: 'paragraph',
-                      locale: 'sv-SE',
-                    })}
+
                   />
                 ) : (
                   <TextBlock.Section
