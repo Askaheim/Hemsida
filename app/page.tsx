@@ -13,39 +13,23 @@ export default async function Home() {
   const client = isEnabled ? previewClient : apolloClient
 
 
-  let data
-
-  try {
-    const result = await client.query({
-      query: GET_LANDING_DATA,
-      variables: {
-        preview: isEnabled,
-      },
-    })
-
-    data = result.data
-
-  } catch (error) {
-    console.error('Landing page query failed. Retrying without heroBgImage:', error)
-
-    const fallbackResult = await client.query({
-      query: GET_LANDING_DATA_FALLBACK,
-      variables: {
-        preview: isEnabled,
-      },
-    })
-
-    data = fallbackResult.data
-  }
+  const { data } = await client.query({
+    query: GET_LANDING_DATA,
+    variables: {
+      preview: isEnabled,
+    },
+  })
 
   const heroData = data?.heroSectionCollection?.items[0]
 
-  const frontPageTextSections =
-    (data?.frontPageTextSectionsCollection?.items ?? []) as BlockProps[]
+  const frontPageTextSections = (data?.frontPageTextSectionsCollection?.items ??
+    []) as BlockProps[]
 
+  // Sort by order  
   const sortedFrontPageTextSections = [...frontPageTextSections].sort(
     (a, b) => a.order - b.order
   )
+
 
   return (
     <>
