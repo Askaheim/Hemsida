@@ -86,6 +86,11 @@ const About = async () => {
                       width={300}
                       height={300}
                       className="w-full h-auto aspect-square object-cover rounded-lg"
+                      {...ContentfulLivePreview.getProps({
+                        assetId: worker.workerProfileImage?.sys?.id ?? '',
+                        fieldId: 'file',
+                        locale: 'sv-SE',
+                      })}
                     />
                   </div>
                 ) : (
@@ -96,6 +101,11 @@ const About = async () => {
                       width={300}
                       height={300}
                       className="w-full h-auto aspect-square object-cover rounded-lg"
+                      {...ContentfulLivePreview.getProps({
+                        assetId: worker.workerProfileImage?.sys?.id ?? '',
+                        fieldId: 'file',
+                        locale: 'sv-SE',
+                      })}
                     />
                   </div>
                 )}
@@ -115,7 +125,7 @@ const About = async () => {
                       <article
                         {...ContentfulLivePreview.getProps({
                           assetId: worker?.sys?.id ?? '',
-                          fieldId: 'logos',
+                          fieldId: 'workerText',
                           locale: 'sv-SE',
                         })}
                         className='font-poppins dark:text-text-primary-dark light:text-text-primary-light flex flex-col gap-4 items-start justify-center text-xl font-normal'

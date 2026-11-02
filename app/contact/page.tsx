@@ -9,7 +9,6 @@ import { GET_CONTACT_DATA } from '@/queries'
 import { draftMode } from 'next/headers'
 import { ContactDataProps } from './contact.types'
 import CenterTextBlock from '@/components/TextSections/CenterTextSection'
-import { ContentfulLivePreview } from '@contentful/live-preview'
 import { Metadata } from 'next'
 
 
