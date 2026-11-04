@@ -178,25 +178,25 @@
   --hero-bg: #1e1c1a;
 
   --color-bronze-1: #f3c55e;
-  --color-primary-accent: #f3c55e;
-  --color-text-primary-dark: #ffffff;
-  --color-text-primary-light: #000000;
-  --color-primaryBgDark: #060222;
-  --color-primaryBgLight: #fffdf8;
-  --color-primary-900: hsl(256, 43%, 7%);
-  --color-primary-800: hsl(240, 24%, 13%);
-  --color-primary-700: hsl(243, 26%, 15%);
-  --color-primary-600: hsl(252, 9%, 22%);
-  --color-primary-500: hsl(259, 13%, 28%);
-  --color-primary-400: hsl(254, 22%, 32%);
-  --color-primary-300: hsl(251, 13%, 68%);
-  --color-primary-200: hsl(240, 15%, 76%);
-  --color-primary-100: hsl(240, 21%, 88%);
+  --color-primary-accent: var(--primary-accent);
+  --color-text-primary-dark: var(--text-primary-dark);
+  --color-text-primary-light: var(--text-primary-light);
+  --color-primaryBgDark: var(--primaryBgDark);
+  --color-primaryBgLight: var(--primaryBgLight);
+  --color-primary-900: var(--primary-900);
+  --color-primary-800: var(--primary-800);
+  --color-primary-700: var(--primary-700);
+  --color-primary-600: var(--primary-600);
+  --color-primary-500: var(--primary-500);
+  --color-primary-400: var(--primary-400);
+  --color-primary-300: var(--primary-300);
+  --color-primary-200: var(--primary-200);
+  --color-primary-100: var(--primary-100);
 
-  --color-accent-400: hsl(256, 43%, 40%);
-  --color-accent-300: hsl(249, 50%, 13%);
-  --color-accent-200: hsl(205, 67%, 10%);
-  --color-accent-100: #352975;
+  --color-accent-400: var(--accent-400);
+  --color-accent-300: var(--accent-300);
+  --color-accent-200: var(--accent-200);
+  --color-accent-100: var(--accent-100);
 
   --color-surface-1: var(--primary-900);
   --color-surface-2: var(--primary-800);
