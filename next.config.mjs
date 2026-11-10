@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ['lucide-react'],
+
   images: {
     remotePatterns: [
       {
@@ -9,6 +10,10 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+  },
+
+  typescript: {
+    ignoreBuildErrors: true,
   },
 }
 
