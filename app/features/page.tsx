@@ -93,29 +93,6 @@ const Features = async () => {
                     <div className="w-full">
                       <ImageCarousel images={carouselImages} />
                     </div>
-
-
-
-                    {/*   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-
-
-                         <div className="w-full">
-                        <JobDetails title={job.jobTitle} description={job.jobDescription} />
-                      </div>
-
-                    </div> */}
-
-
-                    {/*  {job.clientQuote?.json && (
-                      <div className="w-full bg-gray-50/70 p-6 md:p-8 rounded-2xl border-l-4 border-primary-accent mt-4">
-                        <span className="block text-xs font-bold uppercase tracking-wider text-primary-accent mb-2">
-                          Klientens omdöme
-                        </span>
-                        <blockquote className="text-gray-700 italic font-medium md:text-lg leading-relaxed">
-                          &quot;{documentToReactComponents(job.clientQuote.json, richTextOptions)}&quot;
-                        </blockquote>
-                      </div>
-                    )} */}
                   </div>
                 );
               })}

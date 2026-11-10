@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -35,12 +36,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   };
 
   return (
-    <div className="relative mx-auto aspect-3/2 w-full max-w-5xl overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm sm:aspect-[3/1]">
+    <div className="relative mx-auto aspect-3/2 w-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm sm:aspect-3/1">
       {totalImages === 1 ? (
         <Image
           src={images[0].url}
           alt={images[0].description || 'Image 1'}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain sm:object-cover"
           fill
         />
       ) : (
@@ -52,13 +53,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
             return (
               <div
                 key={offset}
-                className={`relative min-w-0 flex-1 overflow-hidden rounded-xl transition-opacity duration-300 ${offset === 0 ? 'opacity-100' : 'opacity-60'
-                  }`}
+                className={`relative min-w-0 flex-1 overflow-hidden rounded-xl transition-opacity duration-300 ${offset === 0 ? 'opacity-100' : 'opacity-60'} ${offset !== 0 ? 'hidden sm:block' : ''}`}
               >
                 <Image
                   src={image.url}
                   alt={image.description || `Image ${imageIndex + 1}`}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain sm:object-cover"
                   fill
                 />
               </div>
