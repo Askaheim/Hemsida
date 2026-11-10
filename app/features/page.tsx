@@ -7,8 +7,6 @@ import apolloClient from '@/lib/apolloClient'
 import previewClient from '@/lib/previewClient'
 import { GET_FEATURES } from '@/queries'
 import { DataProps } from '@/utils/globalTypes'
-import Divider from '@/components/Divider/Divider'
-
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
