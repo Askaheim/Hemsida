@@ -34,23 +34,44 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
   };
 
-  const currentImage = images[currentIndex];
-
   return (
-    <div className="relative aspect-square w-full max-w-md mx-auto overflow-hidden rounded-2xl border border-gray-100 shadow-sm bg-white">
+    <div className="relative mx-auto aspect-3/2 w-full max-w-5xl overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm sm:aspect-[3/1]">
+      {totalImages === 1 ? (
+        <Image
+          src={images[0].url}
+          alt={images[0].description || 'Image 1'}
+          className="h-full w-full object-cover"
+          fill
+        />
+      ) : (
+        <div className="flex h-full gap-2 p-2">
+          {[-1, 0, 1].map((offset) => {
+            const imageIndex = (currentIndex + offset + totalImages) % totalImages;
+            const image = images[imageIndex];
 
-      <Image
-        src={currentImage.url}
-        alt={currentImage.description || `Image ${currentIndex + 1}`}
-        className="w-full h-full object-cover transition-opacity duration-300"
-        fill
-      />
+            return (
+              <div
+                key={offset}
+                className={`relative min-w-0 flex-1 overflow-hidden rounded-xl transition-opacity duration-300 ${offset === 0 ? 'opacity-100' : 'opacity-60'
+                  }`}
+              >
+                <Image
+                  src={image.url}
+                  alt={image.description || `Image ${imageIndex + 1}`}
+                  className="h-full w-full object-cover"
+                  fill
+                />
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       {totalImages > 1 && (
         <>
           <button
             onClick={goToPrevious}
-            className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-bronze-1 text-white backdrop-blur-sm hover:bg-black/60 transition-all focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-bronze-1 p-2 text-white backdrop-blur-sm transition-all hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-white/50"
             aria-label="Previous image"
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
@@ -60,7 +81,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
 
           <button
             onClick={goToNext}
-            className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-bronze-1 text-white backdrop-blur-sm hover:bg-black/60 transition-all focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-bronze-1 p-2 text-white backdrop-blur-sm transition-all hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-white/50"
             aria-label="Next image"
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
@@ -68,7 +89,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
             </svg>
           </button>
 
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+          <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
             {images.map((_, index) => (
               <button
                 key={index}
