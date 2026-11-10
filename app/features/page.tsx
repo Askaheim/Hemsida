@@ -90,20 +90,23 @@ const Features = async () => {
                 return (
                   <div key={idx} className="w-full flex flex-col gap-8 border-b border-gray-100 pb-12 last:border-0">
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-
-                      <div className="w-full">
-                        <ImageCarousel images={carouselImages} />
-                      </div>
-
-                      <div className="w-full">
-                        <JobDetails title={job.jobTitle} description={job.jobDescription} />
-                      </div>
-
+                    <div className="w-full">
+                      <ImageCarousel images={carouselImages} />
                     </div>
 
 
-                    {job.clientQuote?.json && (
+
+                    {/*   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+
+
+                         <div className="w-full">
+                        <JobDetails title={job.jobTitle} description={job.jobDescription} />
+                      </div>
+
+                    </div> */}
+
+
+                    {/*  {job.clientQuote?.json && (
                       <div className="w-full bg-gray-50/70 p-6 md:p-8 rounded-2xl border-l-4 border-primary-accent mt-4">
                         <span className="block text-xs font-bold uppercase tracking-wider text-primary-accent mb-2">
                           Klientens omdöme
@@ -112,7 +115,7 @@ const Features = async () => {
                           &quot;{documentToReactComponents(job.clientQuote.json, richTextOptions)}&quot;
                         </blockquote>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 );
               })}
