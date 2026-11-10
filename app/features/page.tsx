@@ -8,7 +8,7 @@ import previewClient from '@/lib/previewClient'
 import { GET_FEATURES } from '@/queries'
 import { DataProps } from '@/utils/globalTypes'
 import Divider from '@/components/Divider/Divider'
-import Typography from '@mui/material/Typography'
+
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -16,6 +16,7 @@ import JobDetails from '@/components/Jobs/JobDetails'
 import ImageCarousel from '@/components/Carousel/Carousel'
 import { JobProps } from './features.types'
 import { richTextOptions } from '@/components/RichTextOptions/RichTextOptions'
+import Typography from '@/components/Typography/Typography'
 
 
 export const metadata: Metadata = {
@@ -79,10 +80,9 @@ const Features = async () => {
           </div>
 
           <div className=''>
-            <Typography variant='h2' className='font-advisor font-extrabold' >
+            <Typography variant='h2' className='font-advisor font-extrabold dark:text-text-primary-dark light:text-text-primary-light' >
               Tidigare arbeten
             </Typography>
-            <Divider />
 
             <div className='mt-6 md:mt-10 flex flex-col gap-16'>
               {jobs.map((job: JobProps, idx: number) => {
