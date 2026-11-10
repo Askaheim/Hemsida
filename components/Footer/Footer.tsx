@@ -81,7 +81,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
             path: '0737077142'
           },
           {
-            title: 'Address: Nordenskiöldsgatan 13, Göteborg',
+            title: 'Address: Nordenskiöldsgatan 2, Göteborg',
             path: 'https://share.google/RHoQuP5RuBRbE9MDU'
           }
         ]
