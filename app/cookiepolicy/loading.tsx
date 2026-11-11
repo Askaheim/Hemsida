@@ -6,7 +6,7 @@ const loading = ({ }) => {
     return (
         <>
             <Menu />
-            <main className='section-contain mt-20 min-h-screen max-w-[1024px]'>
+            <main className='section-contain mt-20 min-h-screen max-w-5xl'>
                 <PageTitleSkeleton />
                 <article className='flex flex-col gap-4'>
                     <Skeleton className={'h-10'} />

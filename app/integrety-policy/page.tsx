@@ -17,6 +17,7 @@ const policy = async () => {
     query: GET_INTEGRETY_POLICY,
     variables: {
       preview: isEnabled,
+      title: 'Integretets policy',
     },
   })
 

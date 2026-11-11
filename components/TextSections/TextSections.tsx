@@ -81,7 +81,7 @@ const TextBlock: React.FC<TextBlockProps> & {
           alt='Bild för text blocket'
           width={1760}
           height={993}
-          className='h-full rounded-lg object-cover object-center'
+          className=' rounded-lg object-contain object-center'
           {...ContentfulLivePreview.getProps({
             assetId: block.sectionImage?.sys?.id ?? '',
             fieldId: 'file',
