@@ -7,6 +7,7 @@ import { GET_INTEGRETY_POLICY } from './getIntegretyPolicy'
 import { GET_LANDING_DATA } from './getLandingPage'
 import { GET_NAVBAR } from './getNavbar'
 import { GET_TOS_POLICY } from './getToSPolicy'
+import { GET_OVENS } from './getOvens'
 
 export {
   GET_ABOUT,
@@ -18,4 +19,5 @@ export {
   GET_LANDING_DATA,
   GET_NAVBAR,
   GET_TOS_POLICY,
+  GET_OVENS
 }

@@ -67,6 +67,7 @@ const Footer = ({ socialMediaData, variant = 'light' }: { socialMediaData: Socia
           { title: 'Integritetspolicy', path: '/integrety-policy' },
           { title: 'Cookiepolicy', path: '/cookiepolicy' },
           { title: 'Användarvillkor', path: '/tos' },
+          { title: 'Miljöpolicy', path: '/enviroment-policy' }
         ],
       },
       {

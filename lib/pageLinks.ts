@@ -9,8 +9,12 @@ const pageLinks: PageLinkProps = [
     path: '/',
   },
   {
-    title: 'Tjänster',
+    title: 'Skorsten & Murstock',
     path: '/features',
+  },
+  {
+    title: 'Kakelugn',
+    path: '/ovens',
   },
   {
     title: 'Om oss',

@@ -9,11 +9,8 @@ import { GET_FEATURES } from '@/queries'
 import { DataProps } from '@/utils/globalTypes'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import JobDetails from '@/components/Jobs/JobDetails'
 import ImageCarousel from '@/components/Carousel/Carousel'
 import { JobProps } from './features.types'
-import { richTextOptions } from '@/components/RichTextOptions/RichTextOptions'
 import Typography from '@/components/Typography/Typography'
 
 
@@ -62,7 +59,7 @@ const Features = async () => {
                     key={block.sys?.id ?? block.order}
                     className='py-8 lg:py-10'
                     block={block}
-                    showImage={false}
+                    showImage={true}
 
                   />
                 ) : (
